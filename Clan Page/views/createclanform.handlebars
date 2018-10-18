@@ -1,0 +1,30 @@
+<form action="/api/createclan" method="post">
+    <div>User: <input type="text" name="user"></div>
+    <div>Clan: <input type="text" name="clan"></div>
+    <div>Game:
+        <select name="game">
+            <option value="Fortnite: Battle Royale">Fortnite: Battle Royale</option>
+            <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+            <option value="PlayerUnknown's Battlegrounds">PlayerUnknown's Battlegrounds</option>
+            <option value="Minecraft">Minecraft</option>
+            <option value="Overwatch">Overwatch</option>
+            <option value="Rocket League">Rocket League</option>
+            <option value="League Of Legends">League Of Legends</option>
+            <option value="Super Mario Odyssey">Super Mario Odyssey</option>
+            <option value="Roblox">Roblox</option>
+            <option value="Counter-Strike: Global Offensive">Counter-Strike: Global Offensive</option>
+            <option value="The Legend Of Zelda: Breath Of The Wild">The Legend Of Zelda: Breath Of The Wild</option>
+            <option value="Battlefield 1">Battlefield 1</option>
+            <option value="Call Of Duty: WWII">Call Of Duty: WWII</option>
+            <option value="Call Of Duty: Black Ops II">Call Of Duty: Black Ops II</option>
+            <option value="FIFA 18">FIFA 18</option>
+            <option value="Assassin's Creed Origins">Assassin's Creed Origins</option>
+            <option value="Super Smash Bros">Super Smash Bros</option>
+            <option value="The Elder Scrolls V: Skyrim">The Elder Scrolls V: Skyrim</option>
+            <option value="Star Wars Battlefront II is a 2017"></option>
+        </select>
+    </div>
+    {{!-- <div>Role: <input type="hidden" name="role" value="Leader"></div> --}}
+    <div hidden>Role: <input type="text" name="role" value="Leader"></div>
+    <input type="submit" value="Create New Clan">
+</form>
