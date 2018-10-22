@@ -25,42 +25,53 @@ app.get('/', function (req, res) {
         if (error) {
             throw error;
         }
+
         res.render('home', { results });
     });
+
 });
 
-app.post('/api/user/create', (req, res) => {
-    const name = req.body.name;
-    const emplid = req.body.emplid;
-    const hiredate = new Date().toISOString();
-    connection.query(query_test_insert, [emplid, name, hiredate], (error, results, fields) => {
+app.get('/api/allclan', (req, res) => {
+    const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
+    connection.query(select_all_clan, (error, results, fields) => {
         if (error) {
             throw error;
         }
-        res.redirect('/')
+        res.render('allclan', { results });
     });
 });
+app.get('/css/allclan.css', function (req, res) {
+    res.sendFile(__dirname + '/css/allclan.css')
+});
 
-app.post('/api/user/delete/:id', (req, res) => {
-    const id = req.params.id;
-    connection.query('DELETE FROM Test WHERE emplid = ?;', [id], (error, results, fields) => {
+app.get('/api/clanpage/:clan', (req, res) => {
+    const select_users = "SELECT * FROM Team WHERE Clan = '" + req.params.clan + "' ORDER BY Role;";
+    connection.query(select_users, (error, results, fields) => {
         if (error) {
             throw error;
         }
-        res.redirect('/')
+        res.render('allclan', { results });
     });
 });
 
-app.post('/api/user/delete', (req, res) => {
-    const start = req.body.start;
-    const finish = req.body.finish;
-    connection.query('DELETE FROM Test WHERE ? < emplid AND emplid < ?;', [start, finish], (error, results, fields) => {
+app.get('/api/create_clan_form', (req, res) => {
+    res.render('createclanform');
+});
+
+app.post('/api/createclan', (req, res) => {
+    const user = req.body.user;
+    const clan = req.body.clan;
+    const game = req.body.game;
+    const role = req.body.role;
+
+    const statement = 'INSERT INTO Team (Clan, User, Game, Role) VALUES (?, ?, ?, ?);';
+
+    connection.query(statement, [clan, user, game, role], (error, results, fields) => {
         if (error) {
             throw error;
         }
-        res.redirect('/')
+        console.log(`User: ${user} is created succesfully.`);
+        res.redirect('/api/allclan');
     });
 });
-
 app.listen(3000);
-
