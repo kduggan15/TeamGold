@@ -8,28 +8,28 @@ const app = express();
 const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'FakeStudent',
+  user     : 'root',
   password : 'password',
-  database : 'FakeStudent'
+  database : 'Gold'
 });
 
 const query_test_select = 'SELECT * FROM Test ORDER BY EmplId;';
 const query_test_insert = 'INSERT INTO Test (EmplId, Name, HireDate) VALUES (?, ?, ?);';
 
-app.engine('handlebars', hb({defaultLayout: 'main'}));
+app.engine('handlebars', hb({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
-app.get('/', function (req, res) {
-    connection.query(query_test_select, (error, results, fields) => {
-        if (error) {
-            throw error;
-        }
-
-        res.render('home', { results });
-    });
-
-});
+//app.get('/', function (req, res) {
+//    connection.query(query_test_select, (error, results, fields) => {
+//        if (error) {
+//            throw error;
+//        }
+//
+//        res.render('home', { results });
+//    });
+//
+//});
 
 app.get('/api/allclan', (req, res) => {
     const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
@@ -74,4 +74,46 @@ app.post('/api/createclan', (req, res) => {
         res.redirect('/api/allclan');
     });
 });
+
+
+//Jon's Code 
+
+const myProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='itzjt' and gameUsers.gameID = games.gameID;"
+app.get('/myprofile', function(req, res){
+    connection.query(myProfile, (error, results, fields) => {
+        if(error){
+            throw error;
+        }
+        console.log(results);
+        console.log('My Profile has been loaded...')
+        res.render('mainProfilePage', { results });
+    });
+
+});
+
+const viewFriends = 'select userFriend from friends where userName = "iTzjT";';
+const viewFriendsandPictures = "select distinct profilepictures, userFriend from friends, usersProfiles where friends.userName ='iTzjT' and usersProfiles.userName = friends.userFriend;"
+app.get('/myfriends', function(req, res){
+    connection.query(viewFriendsandPictures, (error, results, friends)=>{
+        if(error){
+            throw error;
+        }
+        console.log(results);
+        console.log("My friends list has loaded...")
+        res.render("friendsList",{results});
+    })
+})
+app.get('/:userName', function(req, res){
+    var userName = req.params.userName;
+    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"    
+    connection.query(userProfile, (error,results,fields) =>{
+        if(error){
+            throw error;
+        }
+        console.log(results);
+        res.render('otherProfiles', { results });
+    })
+})
+
+
 app.listen(3000);

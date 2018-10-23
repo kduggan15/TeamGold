@@ -7,9 +7,9 @@ from mysql.connector import errorcode
 
 config = {
     "user": 'root',
-    "password": '756710296Born',
+    "password": 'password',
     "host": '127.0.0.1',
-    "database": 'Gold'
+    "database": 'gold'
 }
 
 def create_random_clan():

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <style>
+.Friends{
+width: 1600px;
+padding: 12px;
+border: 5px solid gray;
+margin: 0;
+left: 0;
+right: 0;
+} 
+    </style>
+
+
+    </head>
+
+<Body>
+<h1>Friends List</h1>
+
+<table>
+    <thead> 
+    </thead> 
+    <tbody> 
+        {{#results}}
+        <tr> 
+            <div class="Friends">
+                <img src={{profilepictures}} alt="Jon" style="width:5%"><a href=/{{userFriend}} style="font-size: 50px; text-decoration: none">{{userFriend}}</a>
+            </div> 
+        </tr> 
+        {{/results}} 
+    </tbody> 
+</table>
+  
+</Body>
+</html>
