@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.profilecontainer {
+    width:500px;
+    position: fixed;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 280px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    position: absolute;
+    left: 0;
+}
+.gamelist{
+    width: 1200px;
+    padding: 12px;
+    border: 5px solid gray;
+    margin: 0;
+    position: absolute;
+    top :300px;
+    right: 0;
+}
+    .games{
+    width: 1600px;
+    padding: 12px;
+    border: 5px solid gray;
+    margin: 0;
+    top :300px;
+    right: 0;
+}
+.bio{
+    width: 1200px;
+    padding: 12px;
+    border: 5px solid gray;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    }
+input.MyButton {
+    width: 300px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 10px;
+    position: absolute;
+    top :300px;
+    right: 0;
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 15px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center"></h2>
+    {{#each results}}
+    <div class="profile_container">
+        <div class="card">
+            <img src={{profilepictures}} alt="Jon" style="width:100%">
+            <h1>{{userName}}</h1>
+            <h2>{{name}}</h2>
+            <p class="title">Gold Member & Cofounder</p>
+            <p>City College of New York</p>
+            <div style="margin: 24px 0;">
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        <p><button>Contact</button></p>
+        </div>
+        <div class="bio">
+            <h1>Biography:</h1>
+            <p>{{bio}}</p>
+        </div>    
+        
+    </div>
+    {{/each}}  
+    <div class = "gamelist">
+        <h1>Games played:</h1>
+        {{#each results}}
+        <div class="games">
+            {{gameName}}
+        </div>    
+        {{/each}}
+    </div>
+    <form>
+        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/myfriends'" />
+    </form>
+    
+   
+</body>
+
+</html>
