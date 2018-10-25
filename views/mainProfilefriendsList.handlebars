@@ -1,0 +1,52 @@
+<html>
+<head>
+<style>
+.Friends{
+width: 1600px;
+padding: 12px;
+border: 5px solid gray;
+margin: 0;
+left: 0;
+right: 0;
+} 
+input.removeFriend {
+    width: 250px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 0px;
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
+</style>
+
+
+    </head>
+
+<Body>
+<h1>Friends List</h1>
+
+<table>
+    <thead> 
+    </thead> 
+    <tbody> 
+        {{#results}}
+        <tr> 
+            <div class="Friends">
+                <img src={{profilepictures}} alt="Jon" style="width:5%"><a href=/user/{{userFriend}} style="font-size: 50px; text-decoration: none">{{userFriend}}</a>
+                <input class="removeFriend" type="button" value="Remove Friend" onclick="window.location.href='/user/{{userFriend}}/removeFriend'" />
+            </div> 
+        </tr> 
+        {{/results}} 
+    </tbody> 
+</table>
+  
+</Body>
+</html>
