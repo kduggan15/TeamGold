@@ -100,8 +100,6 @@ button:hover, a:hover {
             <img src={{profilepictures}} alt="Jon" style="width:100%">
             <h1>{{userName}}</h1>
             <h2>{{name}}</h2>
-            <p class="title">Gold Member & Cofounder</p>
-            <p>City College of New York</p>
             <div style="margin: 24px 0;">
                 <a href="#"><i class="fa fa-dribbble"></i></a> 
                 <a href="#"><i class="fa fa-twitter"></i></a>  
@@ -126,7 +124,9 @@ button:hover, a:hover {
         {{/each}}
     </div>
     <form>
-        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/myfriends'" />
+        {{#each results}}
+        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/user/{{userName}}/friendslist'" />
+        {{/each}}
     </form>
     
    

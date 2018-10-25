@@ -126,7 +126,9 @@ button:hover, a:hover {
         {{/each}}
     </div>
     <form>
-        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/myfriends'" />
+        {{#each results}}
+        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/user/{{userName}}/friendslist'" />
+        {{/each}}
     </form>
     
    

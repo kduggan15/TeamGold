@@ -79,7 +79,7 @@ app.post('/api/createclan', (req, res) => {
 //Jon's Code 
 
 const myProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='itzjt' and gameUsers.gameID = games.gameID;"
-app.get('/myprofile', function(req, res){
+app.get('/user/myprofile', function(req, res){
     connection.query(myProfile, (error, results, fields) => {
         if(error){
             throw error;
@@ -92,8 +92,9 @@ app.get('/myprofile', function(req, res){
 });
 
 const viewFriends = 'select userFriend from friends where userName = "iTzjT";';
-const viewFriendsandPictures = "select distinct profilepictures, userFriend from friends, usersProfiles where friends.userName ='iTzjT' and usersProfiles.userName = friends.userFriend;"
-app.get('/myfriends', function(req, res){
+
+app.get('/user/:userName/friendslist', function(req, res){
+    const viewFriendsandPictures = "select distinct profilepictures, userFriend from friends, usersProfiles where friends.userName = '" + req.params.userName + "' and usersProfiles.userName = friends.userFriend;"
     connection.query(viewFriendsandPictures, (error, results, friends)=>{
         if(error){
             throw error;
@@ -103,9 +104,9 @@ app.get('/myfriends', function(req, res){
         res.render("friendsList",{results});
     })
 })
-app.get('/:userName', function(req, res){
+app.get('/user/:userName', function(req, res){
     var userName = req.params.userName;
-    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"    
+    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName + "' and gameUsers.gameID = games.gameID;"    
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
             throw error;
