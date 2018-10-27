@@ -13,23 +13,22 @@ const connection = mysql.createConnection({
   database : 'Gold'
 });
 
-const query_test_select = 'SELECT * FROM Test ORDER BY EmplId;';
-const query_test_insert = 'INSERT INTO Test (EmplId, Name, HireDate) VALUES (?, ?, ?);';
 
 app.engine('handlebars', hb({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
-//app.get('/', function (req, res) {
-//    connection.query(query_test_select, (error, results, fields) => {
-//        if (error) {
-//            throw error;
-//        }
-//
-//        res.render('home', { results });
-//    });
-//
-//});
+app.get('/', function (req, res) {
+    const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
+    connection.query(query_test_select, (error, results, fields) => {
+        if (error) {
+            throw error;
+        }
+
+        res.render('home', { results });
+    });
+
+});
 
 app.get('/api/allclan', (req, res) => {
     const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
@@ -105,7 +104,7 @@ app.get('/myfriends', function(req, res){
 })
 app.get('/:userName', function(req, res){
     var userName = req.params.userName;
-    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"    
+    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
             throw error;
