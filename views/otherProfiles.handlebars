@@ -41,8 +41,9 @@
     position: absolute;
     right: 0;
     }
-input.MyButton {
-    width: 300px;
+
+    input.AddFriend {
+    width: 200px;
     padding: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -50,10 +51,46 @@ input.MyButton {
     background: #3366cc;
     color: #fff;
     border: 1px solid #3366cc;
-    border-radius: 10px;
-    position: absolute;
+    border-radius: 0px;
     top :300px;
-    right: 0;
+    right: 10;
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
+    input.ViewFriends {
+    width: 280px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 0px;
+    position: absolute;
+    top :700px;
+    
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
+    input.ViewClan {
+    width: 280px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 0px;
+    position: absolute;
+    top :770px;
     }
     input.MyButton:hover {
     color: #ffff00;
@@ -100,13 +137,9 @@ button:hover, a:hover {
             <img src={{profilepictures}} alt="Jon" style="width:100%">
             <h1>{{userName}}</h1>
             <h2>{{name}}</h2>
-            <p class="title">Gold Member & Cofounder</p>
-            <p>City College of New York</p>
             <div style="margin: 24px 0;">
-                <a href="#"><i class="fa fa-dribbble"></i></a> 
-                <a href="#"><i class="fa fa-twitter"></i></a>  
-                <a href="#"><i class="fa fa-linkedin"></i></a>  
-                <a href="#"><i class="fa fa-facebook"></i></a>
+
+                <input class="AddFriend" type="button" value="Add Friend" onclick="window.location.href='/user/{{userName}}/addfriend'" />
             </div>
         <p><button>Contact</button></p>
         </div>
@@ -122,11 +155,16 @@ button:hover, a:hover {
         {{#each results}}
         <div class="games">
             {{gameName}}
-        </div>    
+        </div>   
+        
         {{/each}}
     </div>
+    
     <form>
-        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/myfriends'" />
+        {{#each results}}
+        <input class="ViewClan" type="button" value="View Clan" onclick="window.location.href='/user/{{userName}}/friendslist'" />
+        <input class="ViewFriends" type="button" value="View Friends" onclick="window.location.href='/user/{{userName}}/friendslist'"  />
+        {{/each}}
     </form>
     
    
