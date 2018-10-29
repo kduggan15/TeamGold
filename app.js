@@ -9,7 +9,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'password',
+  password : '756710296Born',
   database : 'Gold'
 });
 
@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
     });
 
 });
-app.get('/css/Home.css', function (req, res) {
+app.get('/css/home.css', function (req, res) {
     res.sendFile(__dirname + '/css/home.css')
 });
 

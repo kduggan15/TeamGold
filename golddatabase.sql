@@ -3,15 +3,21 @@ drop table if exists usersProfiles;
 drop table if exists gameUsers;
 drop table if exists games;
 drop table if exists friends;
+<<<<<<< HEAD
+drop table if exists Team;
+=======
 drop table if exists team;
+>>>>>>> d1e1b314d0d3772db9fa1aa30e7b0ce2265f91b6
 
-create table users(userName varchar(255) primary key, name varchar(255), email varchar(255), birthday Date);
-create table usersProfiles (userName varchar(255) primary key, profilepictures varchar(255), bio text);
+create table users(userName varchar(127) primary key, name varchar(255), email varchar(255), birthday Date);
+create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(255), bio text);
 create table gameUsers(userName varchar(255), gameID int, score int, totalHours int);
 create table games(gameID int primary key, gameName varchar(255), gameDesc text);
 create table friends(userName varchar(255), userFriend varchar(255));
 create table team(Clan VARCHAR(255), User VARCHAR(255), Game VARCHAR(255), role VARCHAR(255));
 
+
+CREATE TABLE Team (Clan VARCHAR(255), User VARCHAR(255) PRIMARY KEY, Game VARCHAR(255), Role VARCHAR(255));
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
@@ -26,18 +32,18 @@ insert into users values ('HatMan','Jae','Jae@hotmail.com','2000-05-15');
 insert into users values ('HitMan','Johnson','johnson@hotmail.com','1982-11-12');
 insert into users values ('PacMan','Packer','Pack@hotmail.com','2000-05-15');
 
-insert into usersprofiles values ('iTzjT','https://i.imgur.com/4k8uYpc.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
-insert into usersprofiles values ('ThePeePeeMan','https://i.imgur.com/nPJeVQm.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
-insert into usersprofiles values ('AntMan','https://i.imgur.com/nwhnRsZ.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
-insert into usersprofiles values ('TheLord', 'https://i.imgur.com/0ZWPBE6.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
-insert into usersprofiles values ('BigBoy','https://i.imgur.com/Fb89mL3.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
+insert into usersProfiles values ('iTzjT','https://i.imgur.com/4k8uYpc.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
+insert into usersProfiles values ('ThePeePeeMan','https://i.imgur.com/nPJeVQm.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
+insert into usersProfiles values ('AntMan','https://i.imgur.com/nwhnRsZ.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
+insert into usersProfiles values ('TheLord', 'https://i.imgur.com/0ZWPBE6.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
+insert into usersProfiles values ('BigBoy','https://i.imgur.com/Fb89mL3.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
 
-insert into usersprofiles values ('DudeBro','https://i.imgur.com/wSO1BDW.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
-insert into usersprofiles values ('SniperKiller','https://i.imgur.com/a6kseh7.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
-insert into usersprofiles values ('TimeLord','https://i.imgur.com/naFKKLa.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
-insert into usersprofiles values ('HatMan', 'https://i.imgur.com/5GJokS2.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
-insert into usersprofiles values ('HitMan','https://i.imgur.com/LKBm7qZ.jpg','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
-insert into usersprofiles values ('PacMan','https://i.imgur.com/9g7jyuC.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
+insert into usersProfiles values ('DudeBro','https://i.imgur.com/wSO1BDW.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
+insert into usersProfiles values ('SniperKiller','https://i.imgur.com/a6kseh7.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
+insert into usersProfiles values ('TimeLord','https://i.imgur.com/naFKKLa.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
+insert into usersProfiles values ('HatMan', 'https://i.imgur.com/5GJokS2.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
+insert into usersProfiles values ('HitMan','https://i.imgur.com/LKBm7qZ.jpg','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
+insert into usersProfiles values ('PacMan','https://i.imgur.com/9g7jyuC.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
 
 
 insert into friends values('iTzjT','ThePeePeeMan');
@@ -55,3 +61,7 @@ insert into gameUsers values ('iTzjT',1111, 1000, 543);
 insert into gameUsers values ('iTzjT',2222, 555, 200);
 insert into gameUsers values ('iTzjT',3333, 2431, 421);
 insert into gameUsers values ('iTzjT',4444, 1223, 212);
+insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
+insert into gameUsers values ('ThePeePeeMan',2222, 555, 200);
+insert into gameUsers values ('ThePeePeeMan',3333, 2431, 421);
+insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
