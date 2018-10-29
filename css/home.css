@@ -1,0 +1,45 @@
+body {
+    font:15px arial,sans-serif;
+}
+/* h1 {
+    margin: 0 0 10px 0;
+    padding: 5px;
+    font-size: 24px;
+    background-color: #999;
+    color: #ccc;
+} */
+table {
+    margin: 50px;
+}
+th, td {
+    padding: 5px;
+    border: 1px solid #999;
+}
+th {
+    background: #ccc;
+}
+tr:nth-child(odd) {
+    background: #eee;
+}
+td a {
+    color: #000;
+    text-decoration: underline;
+}
+.header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

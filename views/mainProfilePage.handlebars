@@ -16,6 +16,43 @@
     position: absolute;
     left: 0;
 }
+        input.ViewFriends {
+    width: 280px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 0px;
+    position: absolute;
+    top :700px;
+    
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
+    input.ViewClan {
+    width: 280px;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 150%;
+    background: #3366cc;
+    color: #fff;
+    border: 1px solid #3366cc;
+    border-radius: 0px;
+    position: absolute;
+    top :770px;
+    }
+    input.MyButton:hover {
+    color: #ffff00;
+    background: #000;
+    border: 1px solid #fff;
+}
 .gamelist{
     width: 1200px;
     padding: 12px;
@@ -126,10 +163,12 @@ button:hover, a:hover {
         {{/each}}
     </div>
     <form>
-        <input class="MyButton" type="button" value="View Friends" onclick="window.location.href='/myfriends'" />
+        {{#each results}}
+        <input class="ViewClan" type="button" value="View Clan" onclick="window.location.href='/user/{{userName}}/friendslist'" />
+        <input class="ViewFriends" type="button" value="View Friends" onclick="window.location.href='/user/myprofile/friendslist'"  />
+        {{/each}}
     </form>
     
-   
 </body>
 
 </html>

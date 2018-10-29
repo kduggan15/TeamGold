@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/home.css">
+<div class="header">
+  <h1>Info:</h1>
+  <p>Lorem ipsum delor</p>
+</div>
+<div class="row">
+  <div class="column">
+    <table>
+        <thead>
+            <th>Player</th>
+            <th>Game</th>
+            <th>Score</th>
+        </thead>
+        <tbody>
+            {{#results}}
+            <tr>
+                <td>{{ Player }}</td>
+                <td>{{ Game }}</td>
+                <td>{{ Score }}</td>
+            </tr>
+            {{/results}}
+        </tbody>
+    </table>
+  </div>
+</div>
