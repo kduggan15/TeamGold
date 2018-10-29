@@ -37,34 +37,25 @@ app.get('/Games', function (req, res) {
                     throw error;
                 }
         
-                console.log(results);
-            result1 = results;
-
+               
+                res.render('gamepage',{'games':results,
+                topGames:[
+                    {"name":"Black Ops 4","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
+                    {"name":"Fortnite","page":"https://www.google.com/search?tbm=isch&q=Fortnite"},
+                    {"name":"CS:GO","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
+                    {"name":"League Of Legends","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
+                    {"name":"Rainbow Six Seige","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
+                    {"name":"Overwatch","page":"https://www.google.com/search?tbm=isch&q=OverWatch"},
+                    {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
+                ]});
+            
            
         });
 
-        connection.query('SELECT * FROM games', (error, results, fields) => {
-            if (error) {
-                throw error;
-            }
-    
-            console.log(results);
-        result1 = results;
+      
+        
 
        
-    });
-
-
-        res.render('gamepage',{'games':result1,
-        topGames:[
-            {"name":"Black Ops 4","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
-            {"name":"Fortnite","page":"https://www.google.com/search?tbm=isch&q=Fortnite"},
-            {"name":"CS:GO","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
-            {"name":"League Of Legends","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
-            {"name":"Rainbow Six Seige","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
-            {"name":"Overwatch","page":"https://www.google.com/search?tbm=isch&q=OverWatch"},
-            {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
-        ]})
    /*
 
     res.render('gamePage',{games:[
