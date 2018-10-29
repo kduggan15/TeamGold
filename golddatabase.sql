@@ -3,7 +3,6 @@ drop table if exists usersProfiles;
 drop table if exists gameUsers;
 drop table if exists games;
 drop table if exists friends;
-drop table if exists Team;
 drop table if exists team;
 
 create table users(userName varchar(127) primary key, name varchar(255), email varchar(255), birthday Date);
@@ -11,10 +10,16 @@ create table usersProfiles (userName varchar(127) primary key, profilePictures v
 create table gameUsers(userName varchar(255), gameID int, score int, totalHours int);
 create table games(gameID int primary key, gameName varchar(255), gameDesc text);
 create table friends(userName varchar(255), userFriend varchar(255));
-create table team(Clan VARCHAR(255), User VARCHAR(255), Game VARCHAR(255), role VARCHAR(255));
+CREATE TABLE team (clanName VARCHAR(127) primary key, clanDesc text);
+create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127))
 
+insert into team values ('Red', 'We are red we hate blue');
+insert into team values ('Blue', 'We are red we hate red');
+insert into team values ('Yellow', 'We are Yellow we just want to get along');
 
-CREATE TABLE Team (Clan VARCHAR(255), User VARCHAR(255) PRIMARY KEY, Game VARCHAR(255), Role VARCHAR(255));
+insert into teamUser values ('Red','iTzjT','Leader');
+insert into teamUser values ('Blue','ThePeePeeMan','Leader');
+insert into teamUser values ('Yellow','DudeBro','Leader');
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
