@@ -29,7 +29,7 @@ app.get('/', function (req, res) {
     });
 
 });
-app.get('/css/Home.css', function (req, res) {
+app.get('/css/home.css', function (req, res) {
     res.sendFile(__dirname + '/css/home.css')
 });
 
