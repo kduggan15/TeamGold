@@ -28,7 +28,7 @@
     border-radius: 0px;
     position: absolute;
     top :700px;
-    
+
     }
     input.MyButton:hover {
     color: #ffff00;
@@ -134,15 +134,15 @@ button:hover, a:hover {
     {{#each results}}
     <div class="profile_container">
         <div class="card">
-            <img src={{profilepictures}} alt="Jon" style="width:100%">
+            <img src={{profilePictures}} alt="Jon" style="width:100%">
             <h1>{{userName}}</h1>
             <h2>{{name}}</h2>
             <p class="title">Gold Member & Cofounder</p>
             <p>City College of New York</p>
             <div style="margin: 24px 0;">
-                <a href="#"><i class="fa fa-dribbble"></i></a> 
-                <a href="#"><i class="fa fa-twitter"></i></a>  
-                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
                 <a href="#"><i class="fa fa-facebook"></i></a>
             </div>
         <p><button>Contact</button></p>
@@ -150,16 +150,16 @@ button:hover, a:hover {
         <div class="bio">
             <h1>Biography:</h1>
             <p>{{bio}}</p>
-        </div>    
-        
+        </div>
+
     </div>
-    {{/each}}  
+    {{/each}}
     <div class = "gamelist">
         <h1>Games played:</h1>
         {{#each results}}
         <div class="games">
             {{gameName}}
-        </div>    
+        </div>
         {{/each}}
     </div>
     <form>
@@ -168,7 +168,7 @@ button:hover, a:hover {
         <input class="ViewFriends" type="button" value="View Friends" onclick="window.location.href='/user/myprofile/friendslist'"  />
         {{/each}}
     </form>
-    
+
 </body>
 
 </html>

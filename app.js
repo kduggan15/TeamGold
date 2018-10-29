@@ -19,7 +19,7 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
 app.get('/', function (req, res) {
-    const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score;';
+    const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score desc;';
     connection.query(select_game_scores, (error, results, fields) => {
         if (error) {
             throw error;
