@@ -119,7 +119,7 @@ app.get('/user/:userName/friendslist', function(req, res){
 });
 app.get('/user/:userName', function(req, res){
     var userName = req.params.userName;
-    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
+    const userProfile = "select distinct * from users natural join usersProfiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
 
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
