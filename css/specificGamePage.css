@@ -1,0 +1,164 @@
+.Game-Wrapper{
+    
+    padding: 5px;
+    width: 1000px;
+    margin: auto
+}
+
+
+.TitleBox {
+    
+    overflow: hidden;
+    background-color: rgb(76, 91, 175);
+    padding: 10px;
+    padding-left: 20px;
+    font-family: "Arial", Times, serif;
+    width: 97.5%;
+  }
+
+  .TitleBox-right {
+    color: white;
+    text-align: right;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    
+    font-size: 13px;
+    float:right;
+    
+    
+  }
+
+  .TitleBox-left {
+    
+  display: inline-block;
+  color: white;
+  text-align: left;
+  padding-left: 12px;
+  font-size: 13px; 
+  
+ 
+  }
+
+  .TitleBox-title {
+    
+    font-weight: 600;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 30px; 
+  line-height: 25px;
+  border-radius: 4px; 
+  }
+
+  .gameBox {
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5.5px;
+    outline: 1px solid black;
+      
+    display: inline-block;
+    
+}
+
+.img {
+    
+     object-fit: cover;
+    overflow: hidden;
+    
+    
+  }
+  .desc {
+    
+    max-width: 400px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    padding: 5px;
+   
+ }
+
+ .video {
+     padding: 5px;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    
+    
+   
+ }
+
+ .Table-Wrapper{
+     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ table {
+    margin: 0 auto;
+    display: inline-table;
+    padding: 10px;
+    border-collapse: collapse;
+    
+    width: 47%;
+    border: 1px solid black;
+}
+
+table.allPlayers {
+    margin: 0 auto;
+    padding: 10px;
+    border-collapse: collapse;
+    
+    width: 100%;
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){background-color: white}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.playerTable{
+    padding: 10px;
+    text-align: left;
+    display: flex;
+}
+
+.playerImage{
+     margin:auto;
+    object-fit: cover;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.playerName{
+    font-size: 20px;
+    
+    margin:auto;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.Table-Title {
+    padding:5px;
+    font-size: 20px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-color: rgb(76, 91, 175);
+    color: white;
+}
+
+.GameInfo-Wrapper {
+    display: flex; /* equal height of the children */
+  }

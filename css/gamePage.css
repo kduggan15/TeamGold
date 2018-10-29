@@ -1,0 +1,71 @@
+/* Container needed to position the button. Adjust the width as needed */
+
+
+
+.GameBox {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    
+    
+  }
+
+  .AllGames-Wrapper {
+   padding:5px;
+    float: left;
+      width: 80%;
+      height: 100%;
+      
+      
+    }
+
+ 
+  /* Make the image responsive */
+  .GameBox img {
+    height: 100%; width: 100%; object-fit: cover;
+    
+  }
+  
+  /* Style the button and place it in the middle of the container/image */
+  .GameBox .btn {
+    position: absolute;
+    height: 100%; width: 100%; object-fit: fill;
+    background-color: white;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .GameBox .btn:hover {
+    background-color: darkblue;
+  }
+
+  table {
+    float:right;
+    border-collapse: collapse;
+    margin-top:10px;
+    margin-right:2.5%;
+    width: 15%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
