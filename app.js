@@ -19,8 +19,8 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
 app.get('/', function (req, res) {
-    const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
-    connection.query(query_test_select, (error, results, fields) => {
+    const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score;';
+    connection.query(select_game_scores, (error, results, fields) => {
         if (error) {
             throw error;
         }
@@ -29,9 +29,12 @@ app.get('/', function (req, res) {
     });
 
 });
+app.get('/css/Home.css', function (req, res) {
+    res.sendFile(__dirname + '/css/home.css')
+});
 
 app.get('/api/allclan', (req, res) => {
-    const select_all_clan = 'SELECT * FROM Team ORDER BY Clan;';
+    const select_all_clan = 'SELECT * FROM team ORDER BY Clan;';
     connection.query(select_all_clan, (error, results, fields) => {
         if (error) {
             throw error;
@@ -44,7 +47,7 @@ app.get('/css/allclan.css', function (req, res) {
 });
 
 app.get('/api/clanpage/:clan', (req, res) => {
-    const select_users = "SELECT * FROM Team WHERE Clan = '" + req.params.clan + "' ORDER BY Role;";
+    const select_users = "SELECT * FROM team WHERE Clan = '" + req.params.clan + "' ORDER BY Role;";
     connection.query(select_users, (error, results, fields) => {
         if (error) {
             throw error;
@@ -63,7 +66,7 @@ app.post('/api/createclan', (req, res) => {
     const game = req.body.game;
     const role = req.body.role;
 
-    const statement = 'INSERT INTO Team (Clan, User, Game, Role) VALUES (?, ?, ?, ?);';
+    const statement = 'INSERT INTO team (Clan, User, Game, Role) VALUES (?, ?, ?, ?);';
 
     connection.query(statement, [clan, user, game, role], (error, results, fields) => {
         if (error) {
@@ -75,9 +78,9 @@ app.post('/api/createclan', (req, res) => {
 });
 
 
-//Jon's Code 
+//Jon's Code
 
-const myProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='itzjt' and gameUsers.gameID = games.gameID;"
+const myProfile = "select distinct * from users natural join usersProfiles natural join gameUsers, games where users.userName='itzjt' and gameUsers.gameID = games.gameID;"
 app.get('/user/myprofile', function(req, res){
     connection.query(myProfile, (error, results, fields) => {
         if(error){
@@ -116,11 +119,8 @@ app.get('/user/:userName/friendslist', function(req, res){
 });
 app.get('/user/:userName', function(req, res){
     var userName = req.params.userName;
-<<<<<<< HEAD
     const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
-=======
-    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName + "' and gameUsers.gameID = games.gameID;"    
->>>>>>> 2d0b75ede540609438eabf94ff88d021ec0ed58e
+
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
             throw error;

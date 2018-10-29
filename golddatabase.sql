@@ -3,15 +3,15 @@ drop table if exists usersProfiles;
 drop table if exists gameUsers;
 drop table if exists games;
 drop table if exists friends;
-
+drop table if exists team;
 
 create table users(userName varchar(255) primary key, name varchar(255), email varchar(255), birthday Date);
 create table usersProfiles (userName varchar(255) primary key, profilepictures varchar(255), bio text);
-
 create table gameUsers(userName varchar(255), gameID int, score int, totalHours int);
 create table games(gameID int primary key, gameName varchar(255), gameDesc text);
-
 create table friends(userName varchar(255), userFriend varchar(255));
+create table team(Clan VARCHAR(255), User VARCHAR(255), Game VARCHAR(255), role VARCHAR(255));
+
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
@@ -49,16 +49,9 @@ insert into friends values('iTzjT','BigBoy');
 insert into games values(1111, 'Rainbow Six Seige', 'Tom Clancy’s Rainbow Six Siege is a tactical shooter video game developed by Ubisoft Montreal and published by Ubisoft. It was released worldwide for Microsoft Windows, PlayStation 4, and Xbox One on December 1, 2015. The game puts heavy emphasis on environmental destruction and cooperation between players. Each player assumes control of an attacker or a defender in different gameplay modes such as rescuing a hostage and defusing a bomb. The title has no campaign but features a series of short missions that can be played solo. These missions have a loose narrative, focusing on recruits going through training to prepare them for future encounters with the White Masks, a terrorist group that threatens the safety of the world.');
 insert into games values(2222, 'Fortnite Battle Royale', 'As a battle royale game, Fortnite Battle Royale features up to 100 players, alone, in duos, or in squads of up to four players, attempting to be the last player or group alive by killing other players or evading them, while staying within a constantly shrinking safe zone to prevent taking lethal damage from being outside it. Players start with no intrinsic advantages, and must scavenge for weapons and armor to gain the upper hand on their opponents. The game adds the construction element from Fortnite; players can break down most objects in the game world to gain resources they can use to build fortifications as part of their strategy. Limited-time modes are cycled through the game that introduce experimental or unconventional gameplay but otherwise follow the battle royale "last player standing" goal. The game features cross-platform play between the platforms that was limited for the first five seasons, before the restrictions were eased.');
 insert into games values(3333, 'Black Ops 4', 'Black Ops 4 is the first Call of Duty title without a traditional single-player campaign mode. Instead, it features the Solo Missions mode, which focuses on the backstories of the games multiplayer characters, known as "Specialists". The missions take place between Black Ops II and III chronologically. Some of the Specialists also carried over from Black Ops III. The multiplayer mode is the first in the series to not feature automatic health regeneration and introduces both predictive recoil and a new ballistics system. The game includes three Zombies maps on release day, four if a special edition of the game, or the Black Ops Pass, is purchased. The locations of the maps include the RMS Titanic, an arena in Ancient Rome, and Alcatraz Federal Penitentiary. The game also introduces a battle royale mode called Blackout, which features up to 100 players in each match. Many characters from this and other Black Ops titles can be used as the players character model in this mode.');
-insert into games values(4444, 'League of Legends', 'In League of Legends, players assume the role of an unseen "summoner" that controls a "champion" with unique abilities and battle against a team of other players or computer-controlled champions. The goal is usually to destroy the opposing teams "nexus", a structure that lies at the heart of a base protected by defensive structures, although other distinct game modes exist as well. Each League of Legends match is discrete, with all champions starting off fairly weak but increasing in strength by accumulating items and experience over the course of the game. The champions and setting blend a variety of elements, including high fantasy, steampunk, and Lovecraftian horror.'); 
+insert into games values(4444, 'League of Legends', 'In League of Legends, players assume the role of an unseen "summoner" that controls a "champion" with unique abilities and battle against a team of other players or computer-controlled champions. The goal is usually to destroy the opposing teams "nexus", a structure that lies at the heart of a base protected by defensive structures, although other distinct game modes exist as well. Each League of Legends match is discrete, with all champions starting off fairly weak but increasing in strength by accumulating items and experience over the course of the game. The champions and setting blend a variety of elements, including high fantasy, steampunk, and Lovecraftian horror.');
 
 insert into gameUsers values ('iTzjT',1111, 1000, 543);
 insert into gameUsers values ('iTzjT',2222, 555, 200);
 insert into gameUsers values ('iTzjT',3333, 2431, 421);
 insert into gameUsers values ('iTzjT',4444, 1223, 212);
-
-
-
-
-
-
-
