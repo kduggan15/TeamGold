@@ -3,7 +3,7 @@ drop table if exists usersProfiles;
 drop table if exists gameUsers;
 drop table if exists games;
 drop table if exists friends;
-
+drop table if exists Team;
 
 create table users(userName varchar(255) primary key, name varchar(255), email varchar(255), birthday Date);
 create table usersProfiles (userName varchar(255) primary key, profilepictures varchar(255), bio text);
@@ -12,6 +12,8 @@ create table gameUsers(userName varchar(255), gameID int, score int, totalHours 
 create table games(gameID int primary key, gameName varchar(255), gameDesc text);
 
 create table friends(userName varchar(255), userFriend varchar(255));
+
+CREATE TABLE Team (Clan VARCHAR(255), User VARCHAR(255) PRIMARY KEY, Game VARCHAR(255), Role VARCHAR(255));
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
