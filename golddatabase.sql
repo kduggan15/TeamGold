@@ -3,21 +3,18 @@ drop table if exists usersProfiles;
 drop table if exists gameUsers;
 drop table if exists games;
 drop table if exists friends;
-<<<<<<< HEAD
 drop table if exists Team;
-=======
 drop table if exists team;
->>>>>>> d1e1b314d0d3772db9fa1aa30e7b0ce2265f91b6
 
-create table users(userName varchar(127) primary key, name varchar(255), email varchar(255), birthday Date);
-create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(255), bio text);
-create table gameUsers(userName varchar(255), gameID int, score int, totalHours int);
-create table games(gameID int primary key, gameName varchar(255), gameDesc text);
-create table friends(userName varchar(255), userFriend varchar(255));
-create table team(Clan VARCHAR(255), User VARCHAR(255), Game VARCHAR(255), role VARCHAR(255));
+create table users(userName varchar(127) primary key, name varchar(127), email varchar(127), birthday Date);
+create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(127), bio text);
+create table gameUsers(userName varchar(127), gameID int, score int, totalHours int);
+create table games(gameID int primary key, gameName varchar(127), gameDesc text);
+create table friends(userName varchar(127), userFriend varchar(255));
+create table team(Clan VARCHAR(127), User VARCHAR(127), Game VARCHAR(127), role VARCHAR(127));
 
 
-CREATE TABLE Team (Clan VARCHAR(255), User VARCHAR(255) PRIMARY KEY, Game VARCHAR(255), Role VARCHAR(255));
+CREATE TABLE Team (Clan VARCHAR(127), User VARCHAR(127) PRIMARY KEY, Game VARCHAR(127), Role VARCHAR(127));
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
@@ -61,7 +58,47 @@ insert into gameUsers values ('iTzjT',1111, 1000, 543);
 insert into gameUsers values ('iTzjT',2222, 555, 200);
 insert into gameUsers values ('iTzjT',3333, 2431, 421);
 insert into gameUsers values ('iTzjT',4444, 1223, 212);
+
 insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
 insert into gameUsers values ('ThePeePeeMan',2222, 555, 200);
-insert into gameUsers values ('ThePeePeeMan',3333, 2431, 421);
 insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
+
+insert into gameUsers values ('AntMan',1111, 1000, 543);
+insert into gameUsers values ('AntMan',3333, 2431, 421);
+insert into gameUsers values ('AntMan',4444, 1223, 212);
+
+insert into gameUsers values ('TheLord',1111, 1000, 543);
+insert into gameUsers values ('TheLord',2222, 555, 200);
+insert into gameUsers values ('TheLord',3333, 2431, 421);
+insert into gameUsers values ('TheLord',4444, 1223, 212);
+
+insert into gameUsers values ('BigBoy',1111, 1000, 543);
+insert into gameUsers values ('BigBoy',2222, 555, 200);
+insert into gameUsers values ('BigBoy',3333, 2431, 421);
+insert into gameUsers values ('BigBoy',4444, 1223, 212);
+
+insert into gameUsers values ('DudeBro',1111, 1000, 543);
+insert into gameUsers values ('DudeBro',2222, 555, 200);
+insert into gameUsers values ('DudeBro',3333, 2431, 421);
+insert into gameUsers values ('DudeBro',4444, 1223, 212);
+
+insert into gameUsers values ('SniperKiller',1111, 1000, 543);
+insert into gameUsers values ('SniperKiller',3333, 2431, 421);
+insert into gameUsers values ('SniperKiller',4444, 1223, 212);
+
+insert into gameUsers values ('TimeLord',1111, 1000, 543);
+insert into gameUsers values ('TimeLord',2222, 555, 200);
+insert into gameUsers values ('TimeLord',3333, 2431, 421);
+
+insert into gameUsers values ('HatMan',1111, 1000, 543);
+insert into gameUsers values ('HatMan',2222, 555, 200);
+insert into gameUsers values ('HatMan',4444, 1223, 212);
+
+insert into gameUsers values ('HitMan',1111, 1000, 543);
+insert into gameUsers values ('HitMan',2222, 555, 200);
+insert into gameUsers values ('HitMan',3333, 2431, 421);
+insert into gameUsers values ('HitMan',4444, 1223, 212);
+
+insert into gameUsers values ('PacMan',1111, 1000, 543);
+insert into gameUsers values ('PacMan',2222, 555, 200);
+insert into gameUsers values ('PacMan',4444, 1223, 212);
