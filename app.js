@@ -9,7 +9,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345678',
+  password : 'password',
   database : 'Gold'
 });
 
@@ -193,7 +193,7 @@ app.get('/user/myprofile/friendslist', function(req, res){
 const viewFriends = 'select userFriend from friends where userName = "iTzjT";';
 
 app.get('/user/:userName/friendslist', function(req, res){
-    const viewFriendsandPictures = "select distinct profilepictures, userFriend from friends, usersProfiles where friends.userName = '" + req.params.userName + "' and usersProfiles.userName = friends.userFriend;"
+    const viewFriendsandPictures = "select distinct profilePictures, userFriend from friends, usersProfiles where friends.userName = '" + req.params.userName + "' and usersProfiles.userName = friends.userFriend;"
     connection.query(viewFriendsandPictures, (error, results, friends)=>{
         if(error){
             throw error;
