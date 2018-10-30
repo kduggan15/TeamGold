@@ -57,7 +57,9 @@ h1{
 .Home-Wrapper{
     padding: 5px;
     width: 1000px;
-    margin: auto
+    /* margin: auto */
+    margin: 0;
+    width: 100%;
 }
 .column {
     float: left;
