@@ -48,22 +48,80 @@ insert into users values ('PacMan','Packer','Pack@hotmail.com','2000-05-15');
 
 insert into usersProfiles values ('iTzjT','https://i.imgur.com/4k8uYpc.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
 insert into usersProfiles values ('ThePeePeeMan','https://i.imgur.com/nPJeVQm.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
-insert into usersProfiles values ('AntMan','https://i.imgur.com/nwhnRsZ.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
-insert into usersProfiles values ('TheLord', 'https://i.imgur.com/0ZWPBE6.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
-insert into usersProfiles values ('BigBoy','https://i.imgur.com/Fb89mL3.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
+insert into usersProfiles values ('AntMan','https://i.imgur.com/nwhnRsZ.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight.');
+insert into usersProfiles values ('TheLord', 'https://i.imgur.com/0ZWPBE6.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes.');
+insert into usersProfiles values ('BigBoy','https://i.imgur.com/Fb89mL3.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me.');
 
 insert into usersProfiles values ('DudeBro','https://i.imgur.com/wSO1BDW.jpg','Master Chief Petty Officer John-117, more commonly known as the Master Chief, is a SPARTAN-II commando of the UNSC Naval Special Warfare Command. He is the protagonist and main character in both the Halo trilogy and Reclaimer Saga. With over thirty years of active duty, he has become one of the most decorated war veterans in the United Nations Space Command, earning every known UNSC medal except the Prisoner of War Medallion.');
-insert into usersProfiles values ('SniperKiller','https://i.imgur.com/a6kseh7.jpg','Hello, my name is Peter and I am the peepee man. I drink the pee of my victims LOLZ');
-insert into usersProfiles values ('TimeLord','https://i.imgur.com/naFKKLa.jpg','My name is Anthony and I have the powers of an Ant. Its pretty cool. I can lift objects 10 times my own body weight :).');
-insert into usersProfiles values ('HatMan', 'https://i.imgur.com/5GJokS2.jpg', 'I am the lord. Come to me my child and I will grant you one wish. And only one, no I wish for a million wishes you faggot.');
-insert into usersProfiles values ('HitMan','https://i.imgur.com/LKBm7qZ.jpg','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
-insert into usersProfiles values ('PacMan','https://i.imgur.com/9g7jyuC.png','Sup my name is BigBoy and Im a big boy. I workout and lift. I eat and I consume. I big and Im huge. Dont mess with me ;).');
+insert into usersProfiles values ('SniperKiller','https://i.imgur.com/a6kseh7.jpg','I am the sniper killer. I joined the army 50 years ago as a little boy. My father was Gun killer. He named me after his gun, which was a sniper.');
+insert into usersProfiles values ('TimeLord','https://i.imgur.com/naFKKLa.jpg','I am a time lord. I travel in a space time machine called the tardis. I am on a mission to stop the doctor from destorying the universe.');
+insert into usersProfiles values ('HatMan', 'https://i.imgur.com/5GJokS2.jpg', 'I am the Hat Man I sell Hats and I also eat Hats. I enjoy many hobbies like Hats. I hate batman, he took my name. The HatMan.');
+insert into usersProfiles values ('HitMan','https://i.imgur.com/LKBm7qZ.jpg','I am the HitMan. I like to hit people. I mean look at my name.');
+insert into usersProfiles values ('PacMan','https://i.imgur.com/9g7jyuC.png','Sup I am the PacMan thats right THE PACMAN! I eat ghosts and kill things with my mouth.');
 
 
 insert into friends values('iTzjT','ThePeePeeMan');
 insert into friends values('iTzjT','AntMan');
 insert into friends values('iTzjT','TheLord');
 insert into friends values('iTzjT','BigBoy');
+
+insert into friends values('ThePeePeeMan','PacMan');
+insert into friends values('ThePeePeeMan','AntMan');
+insert into friends values('ThePeePeeMan','TheLord');
+insert into friends values('ThePeePeeMan','DudeBro');
+insert into friends values('ThePeePeeMan','SniperKiller');
+insert into friends values('ThePeePeeMan','TimeLord');
+insert into friends values('ThePeePeeMan','HatMan');
+insert into friends values('ThePeePeeMan','PacMan');
+
+insert into friends values('AntMan','PacMan');
+insert into friends values('AntMan','TheLord');
+insert into friends values('AntMan','BigBoy');
+insert into friends values('AntMan','PacMan');
+insert into friends values('AntMan','DudeBro');
+insert into friends values('AntMan','SniperKiller');
+insert into friends values('AntMan','HitMan');
+
+insert into friends values('TheLord','PacMan');
+insert into friends values('TheLord','AntMan');
+insert into friends values('TheLord','TheLord');
+insert into friends values('TheLord','BigBoy');
+insert into friends values('TheLord','PacMan');
+insert into friends values('TheLord','DudeBro');
+insert into friends values('TheLord','SniperKiller');
+insert into friends values('TheLord','HitMan');
+
+insert into friends values('SniperKiller','PacMan');
+insert into friends values('SniperKiller','AntMan');
+insert into friends values('SniperKiller','TheLord');
+insert into friends values('SniperKiller','BigBoy');
+insert into friends values('SniperKiller','PacMan');
+insert into friends values('SniperKiller','DudeBro');
+insert into friends values('SniperKiller','HitMan');
+
+insert into friends values('TimeLord','AntMan');
+insert into friends values('TimeLord','SniperKiller');
+insert into friends values('TimeLord','TimeLord');
+insert into friends values('TimeLord','HatMan');
+
+insert into friends values('HatMan','AntMan');
+insert into friends values('HatMan','TheLord');
+insert into friends values('HatMan','BigBoy');
+insert into friends values('HatMan','PacMan');
+insert into friends values('HatMan','HitMan');
+
+insert into friends values('HitMan','AntMan');
+insert into friends values('HitMan','TheLord');
+insert into friends values('HitMan','BigBoy');
+insert into friends values('HitMan','PacMan');
+
+insert into friends values('PacMan','AntMan');
+insert into friends values('PacMan','TheLord');
+insert into friends values('PacMan','DudeBro');
+insert into friends values('PacMan','SniperKiller');
+insert into friends values('PacMan','TimeLord');
+insert into friends values('PacMan','HatMan');
+insert into friends values('PacMan','PacMan');
 
 
 insert into games values(1111, 'Rainbow Six Seige', 
@@ -270,3 +328,4 @@ insert into gameUsers values ('PacMan',12222, 555, 243);
 insert into gameUsers values ('PacMan',14444, 345, 23);
 insert into gameUsers values ('PacMan',15555, 400, 3);
 insert into gameUsers values ('PacMan',18888, 555, 243);
+
