@@ -9,35 +9,60 @@ body {
     color: #ccc;
 } */
 table {
-    margin: 50px;
+   margin: 0 auto;
+   display: inline-table;
+   padding: 10px;
+   margin: 10px;
+   border-collapse: collapse;
+
+   width: 47%;
+   border: 1px solid black;
 }
+
+.Table-Title {
+    padding:5px;
+    font-size: 20px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background-color: rgb(76, 91, 175);
+    color: white;
+}
+
 th, td {
-    padding: 5px;
-    border: 1px solid #999;
+    text-align: center;
+    padding: 8px;
 }
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){background-color: white}
+
 th {
-    background: #ccc;
+    background-color: #4CAF50;
+    color: white;
 }
-tr:nth-child(odd) {
-    background: #eee;
-}
-td a {
-    color: #000;
-    text-decoration: underline;
+
+h1{
+  font-size: 40px
 }
 .header {
     background-color: #F1F1F1;
     text-align: center;
     padding: 20px;
+    background-color: rgb(76, 91, 175);
+    font-family: "Arial", Times, serif;
+    font-size: 20px;
+    color: white;
 }
-
-/* Create three equal columns that floats next to each other */
+.Home-Wrapper{
+    padding: 5px;
+    width: 1000px;
+    margin: auto
+}
 .column {
     float: left;
     width: 33.33%;
 }
-
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;

@@ -9,7 +9,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '756710296Born',
+  password : 'password',
   database : 'Gold'
 });
 
@@ -19,13 +19,18 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
 app.get('/', function (req, res) {
+    var games;
     const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score desc;';
-    connection.query(select_game_scores, (error, results, fields) => {
+    connection.query(select_game_scores, (error, usersByScore, fields) => {
         if (error) {
             throw error;
         }
-
-        res.render('home', { results });
+        connection.query('SELECT * FROM games', (error, games, fields) => {
+        if (error) {
+          throw error;
+        }
+        res.render('home', { usersByScore, games});
+        });
     });
 
 });
@@ -36,101 +41,56 @@ app.get('/Games', function (req, res) {
                 if (error) {
                     throw error;
                 }
-        
-               
-                res.render('gamepage',{'games':results,
-                topGames:[
-                    {"name":"Black Ops 4","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
-                    {"name":"Fortnite","page":"https://www.google.com/search?tbm=isch&q=Fortnite"},
-                    {"name":"CS:GO","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
-                    {"name":"League Of Legends","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
-                    {"name":"Rainbow Six Seige","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
-                    {"name":"Overwatch","page":"https://www.google.com/search?tbm=isch&q=OverWatch"},
-                    {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
-                ]});
-            
-           
+
+
+
+                res.render('gamepage',{'games':results});
+
+
         });
-
-      
-        
-
-       
-   /*
-
-    res.render('gamePage',{games:[
-        {"gameID":"1","name":"RainbowSixWiege","image":"https://gearnuke.b-cdn.net/wp-content/uploads/2016/01/rainbow-six-siege.jpg"},
-        {"gameID":"2","name":"Black Ops 4","image":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"gameID":"3","name":"Fortnite","image":"https://static-assets-prod.epicgames.com/fortnite/static/webpack/8704d4d5ffd1c315ac8e2c805a585764.jpg"},
-        {"gameID":"4","name":"CSGO","image":"https://www.hdwallpaper.nu/wp-content/uploads/2015/10/maxresdefault44.jpg"},
-        {"gameID":"5","name":"League Of Legends","image":"https://www.foxsportsasia.com/uploads/2018/05/LoL-Banner.jpg"},
-        {"gameID":"6","name":"Assassinscreed","image":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"},
-        {"gameID":"7","name":"overwatch","image":"https://d3hmvhl7ru3t12.cloudfront.net/img/logos/overwatch-share-3d5a268515283007bdf3452e877adac466d579f4b44abbd05aa0a98aba582eeaebc4541f1154e57ec5a43693345bebda953381a7b75b58adbd29d3f3eb439ad2.jpg"},
-        {"gameID":"8","name":"RRR2","image":"https://i.ytimg.com/vi/9KiSwbFmu0E/maxresdefault.jpg"},
-        {"gameID":"9","name":"Minecraft","image":"https://compass-ssl.xbox.com/assets/0f/e2/0fe20042-0bb8-4781-82f4-7130f928b021.jpg?n=Minecraft-2017_Superhero-0_Keyart_767x431.jpg"}
-
-    ],
-    topGames:[
-        {"name":"Black Ops 4","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
-        {"name":"Fortnite","page":"https://www.google.com/search?tbm=isch&q=Fortnite"},
-        {"name":"CS:GO","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
-        {"name":"League Of Legends","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
-        {"name":"Rainbow Six Seige","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
-        {"name":"Overwatch","page":"https://www.google.com/search?tbm=isch&q=OverWatch"},
-        {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
-    ]
 });
-    
-*/
-});
+
 
 app.get('/Games/:gameID', function (req, res) {
-    console.log(req.params);
-    var game = {name:"Black Ops 4",description:
-    "Lorwerwerem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiae deserunt mollit anim id est laborum."
-    ,tags:[{"tag":"FPS,"},{"tag":"Shooter,"},{"tag":"Zombies,"},{"tag":"Battle Royale"}],developer:"Activision, Treyarch",imageURL:"https://i.redd.it/hf77kkmbmmy01.jpg",videoURL:"https://www.youtube.com/embed/6kqe2ICmTxc"};
 
-    if (req.params.gameID === '3')
-        game = {name:"Fortnite",description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiae deserunt mollit anim id est laborum."
-        ,tags:[{"tag":"FPS,"},{"tag":"Shooter,"},{"tag":"Zombies,"},{"tag":"Battle Royale"}],developer:"Epic Games",imageURL:"https://static-assets-prod.epicgames.com/fortnite/static/webpack/8704d4d5ffd1c315ac8e2c805a585764.jpg",videoURL:"https://www.youtube.com/embed/2gUtfBmw86Y"};
-    
+    const  select_game = 'SELECT * FROM games WHERE gameID = ?;';
+    const select_top_players = 'SELECT * FROM gameUsers WHERE gameID = ? ORDER BY score DESC LIMIT 10 ;';
+    const select_all_players = 'SELECT * FROM usersProfiles NATURAL JOIN gameUsers WHERE gameID = ? ;';
+    const select_most_hours = 'SELECT * FROM gameUsers WHERE gameID = ? ORDER BY totalHours DESC LIMIT 10;';
 
-    res.render('specificGamePage',{
-        Game:game,
-        topPlayers:[
-        {"name":"Person1","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
-        {"name":"Person2","page":"https://www.google.com/search?tbm=isch&q=Fortnite"},
-        {"name":"Person3","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
-        {"name":"Person4","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
-        {"name":"Person5","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
-        
-        
-       
-    ],mostHours:[
-        {"name":"Person1","page":"https://www.google.com/search?tbm=isch&q=blackops4","hours":2672},
-        {"name":"Person2","page":"https://www.google.com/search?tbm=isch&q=Fortnite","hours":1024},
-        {"name":"Person3","page":"https://www.google.com/search?tbm=isch&q=CSGO","hours":1000},
-        {"name":"Person4","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends","hours":536},
-        {"name":"Person5","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege","hours":123}
-       
-    ],AllPlayers:[
-        {"playerName":"Person1","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person2","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person3","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"},
-        {"playerName":"Person4","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person5","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"},
-        {"playerName":"Person1","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person2","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person3","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"},
-        {"playerName":"Person4","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
-        {"playerName":"Person5","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"}
-       
-    ]
-    
-    
-    
-    });
+    connection.query(select_game,req.params.gameID, (error, gameInfo, fields) => {
+        if (error) {
+            throw error;
+        }
+        connection.query(select_top_players,req.params.gameID, (error, topPlayers, fields) => {
+            if (error) {
+                throw error;
+            }
+            connection.query(select_all_players,req.params.gameID, (error, allPlayers, fields) => {
+                if (error) {
+                    throw error;
+                }
+
+                connection.query(select_most_hours,req.params.gameID, (error, mostHours, fields) => {
+                    if (error) {
+                        throw error;
+                    }
+
+                    res.render('specificGamePage',{
+                        'Game':gameInfo[0],
+                        'topPlayers':topPlayers,
+                        'mostHours':mostHours,
+                        'AllPlayers':allPlayers
+                    });
+                });
+            });
+        });
+
+
+});
+
+
+
 
 });
 
@@ -193,7 +153,7 @@ app.post('/api/createclan', (req, res) => {
         console.log(`Clan: ${clan} is created succesfully.`);
         // res.redirect('/api/allclan');
     });
-    
+
     connection.query(statement2, [clan, user, rank], (error) => {
         if (error) {
             throw error;
