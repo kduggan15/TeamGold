@@ -203,72 +203,28 @@ insert into gameUsers values ('iTzjT',13333, 574, 34);
 insert into gameUsers values ('iTzjT',14444, 2000, 100);
 insert into gameUsers values ('iTzjT',15555, 9362, 78);
 
-insert into gameUsers values ('ThePeePeeMan',4444, 514, 69);
 insert into gameUsers values ('ThePeePeeMan',2222, 555, 6);
-insert into gameUsers values ('ThePeePeeMan',4444, 8345, 212);
-insert into gameUsers values ('ThePeePeeMan',9999, 514, 69);
-insert into gameUsers values ('ThePeePeeMan',8888, 555, 6);
-insert into gameUsers values ('ThePeePeeMan',7777, 8345, 212);
-insert into gameUsers values ('ThePeePeeMan',16666, 514, 69);
-insert into gameUsers values ('ThePeePeeMan',18888, 555, 6);
-insert into gameUsers values ('ThePeePeeMan',17777, 8345, 212);
 
 insert into gameUsers values ('AntMan',1111, 155, 23);
 insert into gameUsers values ('AntMan',3333, 1900, 50);
-insert into gameUsers values ('AntMan',4444, 366, 212);
-insert into gameUsers values ('AntMan',5555, 155, 23);
-insert into gameUsers values ('AntMan',6666, 1900, 50);
-insert into gameUsers values ('AntMan',7777, 366, 212);
-insert into gameUsers values ('AntMan',11111, 155, 23);
-insert into gameUsers values ('AntMan',13333, 1900, 50);
-insert into gameUsers values ('AntMan',14444, 366, 212);
-insert into gameUsers values ('AntMan',15555, 155, 23);
-insert into gameUsers values ('AntMan',16666, 1900, 50);
 insert into gameUsers values ('AntMan',17777, 366, 212);
 
-insert into gameUsers values ('TheLord',1111, 12312, 5);
-insert into gameUsers values ('TheLord',2222, 455, 250);
-insert into gameUsers values ('TheLord',3333, 5000, 234);
-insert into gameUsers values ('TheLord',4444, 1234, 2343);
-insert into gameUsers values ('TheLord',6666, 12312, 5);
-insert into gameUsers values ('TheLord',7777, 455, 250);
-insert into gameUsers values ('TheLord',8888, 5000, 234);
-insert into gameUsers values ('TheLord',9999, 1234, 2343);
-insert into gameUsers values ('TheLord',11111, 12312, 5);
-insert into gameUsers values ('TheLord',12222, 455, 250);
-insert into gameUsers values ('TheLord',13333, 5000, 234);
-insert into gameUsers values ('TheLord',14444, 1234, 2343);
+
 insert into gameUsers values ('TheLord',16666, 12312, 5);
 insert into gameUsers values ('TheLord',17777, 455, 250);
 insert into gameUsers values ('TheLord',18888, 5000, 234);
-
 insert into gameUsers values ('BigBoy',1111, 8945, 1000);
-insert into gameUsers values ('BigBoy',2222, 555, 123);
-insert into gameUsers values ('BigBoy',3333, 412, 5);
-insert into gameUsers values ('BigBoy',4444, 8567, 3448);
-insert into gameUsers values ('BigBoy',5555, 8945, 1000);
+
 insert into gameUsers values ('BigBoy',6666, 555, 123);
 insert into gameUsers values ('BigBoy',7777, 412, 5);
-insert into gameUsers values ('BigBoy',8888, 8567, 3448);
-insert into gameUsers values ('BigBoy',13333, 412, 5);
-insert into gameUsers values ('BigBoy',14444, 8567, 3448);
-insert into gameUsers values ('BigBoy',15555, 8945, 1000);
-insert into gameUsers values ('BigBoy',16666, 555, 123);
-insert into gameUsers values ('BigBoy',17777, 412, 5);
-insert into gameUsers values ('BigBoy',18888, 8567, 3448);
+
 
 insert into gameUsers values ('DudeBro',1111, 7234, 73);
 insert into gameUsers values ('DudeBro',2222, 555, 678);
-insert into gameUsers values ('DudeBro',3333, 2431, 124);
 insert into gameUsers values ('DudeBro',4444, 1415, 2334);
 insert into gameUsers values ('DudeBro',6666, 7234, 73);
-insert into gameUsers values ('DudeBro',8888, 555, 678);
-insert into gameUsers values ('DudeBro',9999, 2431, 124);
-insert into gameUsers values ('DudeBro',5555, 1415, 2334);
 insert into gameUsers values ('DudeBro',11111, 7234, 73);
 insert into gameUsers values ('DudeBro',12222, 555, 678);
-insert into gameUsers values ('DudeBro',13333, 2431, 124);
-insert into gameUsers values ('DudeBro',14444, 1415, 2334);
 insert into gameUsers values ('DudeBro',16666, 7234, 73);
 
 insert into gameUsers values ('SniperKiller',1111, 7635, 543);
@@ -281,51 +237,29 @@ insert into gameUsers values ('SniperKiller',13333, 2456, 123);
 insert into gameUsers values ('SniperKiller',14444, 78999, 2000);
 insert into gameUsers values ('SniperKiller',18888, 7635, 543);
 
-insert into gameUsers values ('TimeLord',1111, 745, 234);
-insert into gameUsers values ('TimeLord',2222, 555, 345);
-insert into gameUsers values ('TimeLord',3333, 712, 4);
+
 insert into gameUsers values ('TimeLord',5555, 745, 234);
 insert into gameUsers values ('TimeLord',6666, 555, 345);
 insert into gameUsers values ('TimeLord',9999, 712, 4);
 insert into gameUsers values ('TimeLord',13333, 712, 4);
-insert into gameUsers values ('TimeLord',15555, 745, 234);
 insert into gameUsers values ('TimeLord',16666, 555, 345);
 
 insert into gameUsers values ('HatMan',1111, 14134, 5223);
-insert into gameUsers values ('HatMan',2222, 555, 7567);
-insert into gameUsers values ('HatMan',4444, 5666, 1233);
-insert into gameUsers values ('HatMan',7777, 14134, 5223);
-insert into gameUsers values ('HatMan',5555, 555, 7567);
-insert into gameUsers values ('HatMan',8888, 5666, 1233);
-insert into gameUsers values ('HatMan',14444, 5666, 1233);
-insert into gameUsers values ('HatMan',17777, 14134, 5223);
-insert into gameUsers values ('HatMan',15555, 555, 7567);
 insert into gameUsers values ('HatMan',18888, 5666, 1233);
 
 insert into gameUsers values ('HitMan',1111, 1000, 1000);
 insert into gameUsers values ('HitMan',2222, 555, 4235);
 insert into gameUsers values ('HitMan',3333, 2431, 800);
 insert into gameUsers values ('HitMan',4444, 8089, 123);
-insert into gameUsers values ('HitMan',5555, 1000, 1000);
-insert into gameUsers values ('HitMan',6666, 555, 4235);
-insert into gameUsers values ('HitMan',7777, 2431, 800);
 insert into gameUsers values ('HitMan',8888, 8089, 123);
 insert into gameUsers values ('HitMan',11111, 1000, 1000);
 insert into gameUsers values ('HitMan',12222, 555, 4235);
 insert into gameUsers values ('HitMan',13333, 2431, 800);
-insert into gameUsers values ('HitMan',14444, 8089, 123);
-insert into gameUsers values ('HitMan',15555, 1000, 1000);
 
-
-insert into gameUsers values ('PacMan',1111, 400, 3);
-insert into gameUsers values ('PacMan',2222, 555, 243);
 insert into gameUsers values ('PacMan',4444, 345, 23);
 insert into gameUsers values ('PacMan',5555, 400, 3);
 insert into gameUsers values ('PacMan',8888, 555, 243);
-insert into gameUsers values ('PacMan',7777, 345, 23);
-insert into gameUsers values ('PacMan',11111, 400, 3);
 insert into gameUsers values ('PacMan',12222, 555, 243);
-insert into gameUsers values ('PacMan',14444, 345, 23);
 insert into gameUsers values ('PacMan',15555, 400, 3);
 insert into gameUsers values ('PacMan',18888, 555, 243);
 
