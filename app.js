@@ -207,7 +207,6 @@ app.get('/user/:userName/friendslist', function(req, res){
 // Bon
 app.get('/user/:userName/clanPage', function(req, res){
     var userName = req.params.userName;
-    // const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
     const userProfile = "SELECT * FROM teamUser WHERE clanName = (SELECT clanName FROM teamUser WHERE userName = '" + userName + "');";
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
