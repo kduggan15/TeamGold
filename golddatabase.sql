@@ -69,51 +69,110 @@ insert into games values(4444, 'League of Legends',
 'In League of Legends, players assume the role of an unseen "summoner" that controls a "champion" with unique abilities and battle against a team of other players or computer-controlled champions. The goal is usually to destroy the opposing teams "nexus", a structure that lies at the heart of a base protected by defensive structures, although other distinct game modes exist as well. Each League of Legends match is discrete, with all champions starting off fairly weak but increasing in strength by accumulating items and experience over the course of the game. The champions and setting blend a variety of elements, including high fantasy, steampunk, and Lovecraftian horror.'
 ,'https://www.foxsportsasia.com/uploads/2018/05/LoL-Banner.jpg','https://www.youtube.com/embed/BGtROJeMPeE'); 
 
-insert into gameUsers values ('iTzjT',1111, 1000, 543);
-insert into gameUsers values ('iTzjT',2222, 555, 200);
-insert into gameUsers values ('iTzjT',3333, 2431, 421);
-insert into gameUsers values ('iTzjT',4444, 1223, 212);
+insert into games values(5555, 'Assassins Creed Odyessey', 
+'Assassins Creed Odyssey is an action role-playing video game developed by Ubisoft Quebec and published by Ubisoft. It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017s Assassins Creed Origins. Set in the year 431 BCE, the plot tells a fictional history of the Peloponnesian War between Athens and Sparta. Players control a male or female mercenary who fights for both sides as they attempt to unite their family and uncover a malign cult.',
+'https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1','https://www.youtube.com/embed/s_SJZSAtLBA');
 
-insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
-insert into gameUsers values ('ThePeePeeMan',2222, 555, 200);
-insert into gameUsers values ('ThePeePeeMan',4444, 1223, 212);
+insert into games values(6666, 'Overwatch', 
+'Overwatch is a team-based multiplayer first-person shooter video game developed and published by Blizzard Entertainment, which released on May 24, 2016 for PlayStation 4, Xbox One, and Windows. Described as a "hero shooter", Overwatch assigns players into two teams of six, with each player selecting from a roster of over 20 characters, known as "heroes", each with a unique style of play whose roles are divided into three general categories that fit their role. Players on a team work together to secure and defend control points on a map or escort a payload across the map in a limited amount of time. Players gain cosmetic rewards that do not affect gameplay, such as character skins and victory poses, as they play the game. The game was initially launched with casual play, with a competitive ranked mode, various arcade game modes, and a player-customizable server browser subsequently included following its release. Additionally, Blizzard has developed and added new characters, maps, and game modes post-release, while stating that all Overwatch updates will remain free, with the only additional cost to players being microtransactions to earn additional cosmetic rewards.',
+'https://d3hmvhl7ru3t12.cloudfront.net/img/logos/overwatch-share-3d5a268515283007bdf3452e877adac466d579f4b44abbd05aa0a98aba582eeaebc4541f1154e57ec5a43693345bebda953381a7b75b58adbd29d3f3eb439ad2.jpg','https://www.youtube.com/embed/FqnKB22pOC0');
 
-insert into gameUsers values ('AntMan',1111, 1000, 543);
-insert into gameUsers values ('AntMan',3333, 2431, 421);
-insert into gameUsers values ('AntMan',4444, 1223, 212);
+insert into games values(7777, 'Red Dead Redemption 2', 
+'Red Dead Redemption 2[a] is a Western-themed action-adventure video game developed and published by Rockstar Games. The game is a prequel to the 2010 game Red Dead Redemption, and the third entry in the Red Dead series. Set in 1899, it follows the story of outlaw Arthur Morgan, a member of the Van der Linde gang.',
+'https://i.ytimg.com/vi/9KiSwbFmu0E/maxresdefault.jpg','https://www.youtube.com/embed/Dw_oH5oiUSE');
 
-insert into gameUsers values ('TheLord',1111, 1000, 543);
-insert into gameUsers values ('TheLord',2222, 555, 200);
-insert into gameUsers values ('TheLord',3333, 2431, 421);
-insert into gameUsers values ('TheLord',4444, 1223, 212);
+insert into games values(8888, 'Counter-Strike: Global Offensive', 
+'Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter video game developed by Hidden Path Entertainment and Valve Corporation. It is the fourth game in the Counter-Strike series and was released for Microsoft Windows, OS X, Xbox 360, and PlayStation 3 in August 2012, with the Linux version released in September 2014. The game pits two teams against each other: the Terrorists and the Counter-Terrorists. Both sides are tasked with eliminating the other while also completing separate objectives, the Terrorists, depending on the game mode, must either plant the bomb or defend the hostages, while the Counter-Terrorists must either prevent the bomb from being planted, defuse the bomb, or rescue the hostages. There are eight game modes, all of which have distinct characteristics specific to that mode.',
+'https://www.hdwallpaper.nu/wp-content/uploads/2015/10/maxresdefault44.jpg','https://www.youtube.com/embed/edYCtaNueQY');
 
-insert into gameUsers values ('BigBoy',1111, 1000, 543);
-insert into gameUsers values ('BigBoy',2222, 555, 200);
-insert into gameUsers values ('BigBoy',3333, 2431, 421);
-insert into gameUsers values ('BigBoy',4444, 1223, 212);
+insert into games values(9999, 'Minecraft', 
+'Minecraft is a 2011 sandbox video game created by Swedish game developer Markus Persson and later developed by Mojang. The game allows players to build with a variety of different blocks in a 3D procedurally generated world, requiring creativity from players. Other activities in the game include exploration, resource gathering, crafting, and combat.',
+'https://compass-ssl.xbox.com/assets/0f/e2/0fe20042-0bb8-4781-82f4-7130f928b021.jpg?n=Minecraft-2017_Superhero-0_Keyart_767x431.jpg','https://www.youtube.com/embed/MmB9b5njVbA');
 
-insert into gameUsers values ('DudeBro',1111, 1000, 543);
-insert into gameUsers values ('DudeBro',2222, 555, 200);
-insert into gameUsers values ('DudeBro',3333, 2431, 421);
-insert into gameUsers values ('DudeBro',4444, 1223, 212);
 
-insert into gameUsers values ('SniperKiller',1111, 1000, 543);
-insert into gameUsers values ('SniperKiller',3333, 2431, 421);
-insert into gameUsers values ('SniperKiller',4444, 1223, 212);
+insert into gameUsers values ('iTzjT',1111, 1615, 342);
+insert into gameUsers values ('iTzjT',2222, 574, 34);
+insert into gameUsers values ('iTzjT',3333, 2000, 100);
+insert into gameUsers values ('iTzjT',4444, 9362, 78);
+insert into gameUsers values ('iTzjT',5555, 1615, 342);
+insert into gameUsers values ('iTzjT',6666, 574, 34);
+insert into gameUsers values ('iTzjT',7777, 2000, 100);
+insert into gameUsers values ('iTzjT',8888, 9362, 78);
 
-insert into gameUsers values ('TimeLord',1111, 1000, 543);
-insert into gameUsers values ('TimeLord',2222, 555, 200);
-insert into gameUsers values ('TimeLord',3333, 2431, 421);
+insert into gameUsers values ('ThePeePeeMan',4444, 514, 69);
+insert into gameUsers values ('ThePeePeeMan',2222, 555, 6);
+insert into gameUsers values ('ThePeePeeMan',4444, 8345, 212);
+insert into gameUsers values ('ThePeePeeMan',9999, 514, 69);
+insert into gameUsers values ('ThePeePeeMan',8888, 555, 6);
+insert into gameUsers values ('ThePeePeeMan',7777, 8345, 212);
 
-insert into gameUsers values ('HatMan',1111, 1000, 543);
-insert into gameUsers values ('HatMan',2222, 555, 200);
-insert into gameUsers values ('HatMan',4444, 1223, 212);
+insert into gameUsers values ('AntMan',1111, 155, 23);
+insert into gameUsers values ('AntMan',3333, 1900, 50);
+insert into gameUsers values ('AntMan',4444, 366, 212);
+insert into gameUsers values ('AntMan',5555, 155, 23);
+insert into gameUsers values ('AntMan',6666, 1900, 50);
+insert into gameUsers values ('AntMan',7777, 366, 212);
 
-insert into gameUsers values ('HitMan',1111, 1000, 543);
-insert into gameUsers values ('HitMan',2222, 555, 200);
-insert into gameUsers values ('HitMan',3333, 2431, 421);
-insert into gameUsers values ('HitMan',4444, 1223, 212);
+insert into gameUsers values ('TheLord',1111, 12312, 5);
+insert into gameUsers values ('TheLord',2222, 455, 250);
+insert into gameUsers values ('TheLord',3333, 5000, 234);
+insert into gameUsers values ('TheLord',4444, 1234, 2343);
+insert into gameUsers values ('TheLord',6666, 12312, 5);
+insert into gameUsers values ('TheLord',7777, 455, 250);
+insert into gameUsers values ('TheLord',8888, 5000, 234);
+insert into gameUsers values ('TheLord',9999, 1234, 2343);
 
-insert into gameUsers values ('PacMan',1111, 1000, 543);
-insert into gameUsers values ('PacMan',2222, 555, 200);
-insert into gameUsers values ('PacMan',4444, 1223, 212);
+insert into gameUsers values ('BigBoy',1111, 8945, 1000);
+insert into gameUsers values ('BigBoy',2222, 555, 123);
+insert into gameUsers values ('BigBoy',3333, 412, 5);
+insert into gameUsers values ('BigBoy',4444, 8567, 3448);
+insert into gameUsers values ('BigBoy',5555, 8945, 1000);
+insert into gameUsers values ('BigBoy',6666, 555, 123);
+insert into gameUsers values ('BigBoy',7777, 412, 5);
+insert into gameUsers values ('BigBoy',8888, 8567, 3448);
+
+insert into gameUsers values ('DudeBro',1111, 7234, 73);
+insert into gameUsers values ('DudeBro',2222, 555, 678);
+insert into gameUsers values ('DudeBro',3333, 2431, 124);
+insert into gameUsers values ('DudeBro',4444, 1415, 2334);
+insert into gameUsers values ('DudeBro',6666, 7234, 73);
+insert into gameUsers values ('DudeBro',8888, 555, 678);
+insert into gameUsers values ('DudeBro',9999, 2431, 124);
+insert into gameUsers values ('DudeBro',5555, 1415, 2334);
+
+insert into gameUsers values ('SniperKiller',1111, 7635, 543);
+insert into gameUsers values ('SniperKiller',3333, 2456, 123);
+insert into gameUsers values ('SniperKiller',4444, 78999, 2000);
+insert into gameUsers values ('SniperKiller',8888, 7635, 543);
+insert into gameUsers values ('SniperKiller',9999, 2456, 123);
+insert into gameUsers values ('SniperKiller',6666, 78999, 2000);
+
+insert into gameUsers values ('TimeLord',1111, 745, 234);
+insert into gameUsers values ('TimeLord',2222, 555, 345);
+insert into gameUsers values ('TimeLord',3333, 712, 4);
+insert into gameUsers values ('TimeLord',5555, 745, 234);
+insert into gameUsers values ('TimeLord',6666, 555, 345);
+insert into gameUsers values ('TimeLord',9999, 712, 4);
+
+insert into gameUsers values ('HatMan',1111, 14134, 5223);
+insert into gameUsers values ('HatMan',2222, 555, 7567);
+insert into gameUsers values ('HatMan',4444, 5666, 1233);
+insert into gameUsers values ('HatMan',7777, 14134, 5223);
+insert into gameUsers values ('HatMan',5555, 555, 7567);
+insert into gameUsers values ('HatMan',8888, 5666, 1233);
+
+insert into gameUsers values ('HitMan',1111, 1000, 1000);
+insert into gameUsers values ('HitMan',2222, 555, 4235);
+insert into gameUsers values ('HitMan',3333, 2431, 800);
+insert into gameUsers values ('HitMan',4444, 8089, 123);
+insert into gameUsers values ('HitMan',5555, 1000, 1000);
+insert into gameUsers values ('HitMan',6666, 555, 4235);
+insert into gameUsers values ('HitMan',7777, 2431, 800);
+insert into gameUsers values ('HitMan',8888, 8089, 123);
+
+insert into gameUsers values ('PacMan',1111, 400, 3);
+insert into gameUsers values ('PacMan',2222, 555, 243);
+insert into gameUsers values ('PacMan',4444, 345, 23);
+insert into gameUsers values ('PacMan',5555, 400, 3);
+insert into gameUsers values ('PacMan',8888, 555, 243);
+insert into gameUsers values ('PacMan',7777, 345, 23);
