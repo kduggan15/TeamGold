@@ -158,13 +158,13 @@ button:hover, a:hover {
         <h1>Games played:</h1>
         {{#each results}}
         <div class="games">
-            {{gameName}}
+            <a href ="/Games/{{gameID}}">{{gameName}}</a>
         </div>
         {{/each}}
     </div>
     <form>
         {{#each results}}
-        <input class="ViewClan" type="button" value="View Clan" onclick="window.location.href='/user/{{userName}}/friendslist'" />
+        <input class="ViewClan" type="button" value="View Clan" onclick="window.location.href='/user/{{userName}}/clanPage'" />
         <input class="ViewFriends" type="button" value="View Friends" onclick="window.location.href='/user/myprofile/friendslist'"  />
         {{/each}}
     </form>
