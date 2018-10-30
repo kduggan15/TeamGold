@@ -8,18 +8,27 @@ body {
     background-color: #999;
     color: #ccc;
 } */
-table {
-   margin: 0 auto;
+Table-Wrapper{
+    padding: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: left;
+}
+.table {
+    float: right;
+   margin: 10 auto;
    display: inline-table;
-   padding: 10px;
-   margin: auto;
+   padding: 100px;
    border-collapse: collapse;
 
-   width: 60%;
+   /* width: 100%; */
    border: 1px solid black;
+   position: absolute;
 }
 
 .Table-Title {
+    /* width: 100%; */
+
     padding:5px;
     font-size: 20px;
     border-top: 1px solid black;
@@ -63,40 +72,57 @@ h1{
 }
 .column {
     float: right;
+    margin: 10;
     position: relative;
-    width: 50%;
+    width: 200px;
 }
 
 .row {
     float: left;
     margin: 0;
 }
-.row:after {
+/* .row:after {
     content: "";
     display: table;
     clear: both;
+} */
+
+
+/* table {
+    margin: 0 auto;
+    display: inline-table;
+    padding: 10px;
+    border-collapse: collapse;
+    
+    width: 47%;
+    border: 1px solid black;
+}
+
+table.allPlayers {
+    margin: 0 auto;
+    padding: 10px;
+    border-collapse: collapse;
+    
+    width: 100%;
+    border: 1px solid black;
+} */
+
+
+.AllGames-Wrapper {
+    position: absolute;
+    padding:5px;
+    margin: 0;
+    /* width: 80%;
+    height: 100%; */
 }
 
 .GameBox {
     display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: absolute;
-      display: inline-block;
-      width: 300px;
-      height: 200px;
-      
-      
-    }
-  
-    .AllGames-Wrapper {
-
-        position: absolute;
-     padding:5px;
-     margin: 0;
-        /* width: 80%;
-        height: 100%; */
-        
-        
-      }
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    display: inline-block;
+    width: 300px;
+    height: 200px;  
+} 

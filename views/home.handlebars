@@ -18,7 +18,7 @@
   </div>
 
 </div>
-<div class="row">
+{{!-- <div class="row">
     
     {{!-- <link rel="stylesheet" href="/gamePage.css"> --}}
     
@@ -29,11 +29,13 @@
       </div>
       {{/each}}
     </div>
-  </div>
+  </div> --}}
 
-  <div class="column">
+  {{!-- <div class="column"> --}}
+    <div class="Table-Wrapper">
+    {{!-- <table class="highestPlayers"> --}}
       <table>
-        <caption class="Table-Title">Highest Scoring Players</caption>
+      <caption class="Table-Title">Highest Scoring Players</caption>
         <tr>
           <th>Name</th>
           <th>Game</th>
@@ -41,13 +43,18 @@
         </tr>
         {{#each usersByScore}}
         <tr>
-          <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
+          {{!-- <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
           <td onclick="window.location.href='{{ page }}'">{{ gameName }}</td>
-          <td onclick="window.location.href='{{ page }}'">{{ score }}</td>
+          <td onclick="window.location.href='{{ page }}'">{{ score }}</td> --}}
+          <td><a href='{{ page }}'>{{ userName }}</a></td>
+          <td><a href='{{ page }}'>{{ gameName }}</a></td>
+          <td><a href='{{ page }}'>{{ score }}</a></td>
         </tr>
         {{/each}}
-      </table>
+    </table>
     </div>
+
+  {{!-- </div> --}}
 
 {{!-- 
   <div class="row">
