@@ -19,19 +19,19 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
 app.get('/', function (req, res) {
-    var usersByScore;
     var games;
     const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score desc;';
-    connection.query(select_game_scores, (error, results, fields) => {
+    connection.query(select_game_scores, (error, usersByScore, fields) => {
         if (error) {
             throw error;
         }
-        usersByScore = results;
-        console.log(results);
-        res.render('home', { results });
+        connection.query('SELECT * FROM games', (error, games, fields) => {
+        if (error) {
+          throw error;
+        }
+        res.render('home', { usersByScore, games});
+        });
     });
-
-      //res.render('home', { usersByScore });
 
 });
 
