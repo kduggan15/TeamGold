@@ -19,14 +19,19 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
 app.get('/', function (req, res) {
+    var usersByScore;
+    var games;
     const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score desc;';
     connection.query(select_game_scores, (error, results, fields) => {
         if (error) {
             throw error;
         }
-
+        usersByScore = results;
+        console.log(results);
         res.render('home', { results });
     });
+
+      //res.render('home', { usersByScore });
 
 });
 
@@ -36,8 +41,8 @@ app.get('/Games', function (req, res) {
                 if (error) {
                     throw error;
                 }
-        
-               
+
+
                 res.render('gamepage',{'games':results,
                 topGames:[
                     {"name":"Black Ops 4","page":"https://www.google.com/search?tbm=isch&q=blackops4"},
@@ -48,14 +53,14 @@ app.get('/Games', function (req, res) {
                     {"name":"Overwatch","page":"https://www.google.com/search?tbm=isch&q=OverWatch"},
                     {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
                 ]});
-            
-           
+
+
         });
 
-      
-        
 
-       
+
+
+
    /*
 
     res.render('gamePage',{games:[
@@ -80,7 +85,7 @@ app.get('/Games', function (req, res) {
         {"name":"Assassins Creed","page":"https://www.google.com/search?tbm=isch&q=AssassinsCreed"},
     ]
 });
-    
+
 */
 });
 
@@ -94,7 +99,7 @@ app.get('/Games/:gameID', function (req, res) {
         game = {name:"Fortnite",description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officiae deserunt mollit anim id est laborum."
         ,tags:[{"tag":"FPS,"},{"tag":"Shooter,"},{"tag":"Zombies,"},{"tag":"Battle Royale"}],developer:"Epic Games",imageURL:"https://static-assets-prod.epicgames.com/fortnite/static/webpack/8704d4d5ffd1c315ac8e2c805a585764.jpg",videoURL:"https://www.youtube.com/embed/2gUtfBmw86Y"};
-    
+
 
     res.render('specificGamePage',{
         Game:game,
@@ -104,16 +109,16 @@ app.get('/Games/:gameID', function (req, res) {
         {"name":"Person3","page":"https://www.google.com/search?tbm=isch&q=CSGO"},
         {"name":"Person4","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends"},
         {"name":"Person5","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege"},
-        
-        
-       
+
+
+
     ],mostHours:[
         {"name":"Person1","page":"https://www.google.com/search?tbm=isch&q=blackops4","hours":2672},
         {"name":"Person2","page":"https://www.google.com/search?tbm=isch&q=Fortnite","hours":1024},
         {"name":"Person3","page":"https://www.google.com/search?tbm=isch&q=CSGO","hours":1000},
         {"name":"Person4","page":"https://www.google.com/search?tbm=isch&q=LeagueOfLegends","hours":536},
         {"name":"Person5","page":"https://www.google.com/search?tbm=isch&q=RainbowSixSiege","hours":123}
-       
+
     ],AllPlayers:[
         {"playerName":"Person1","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
         {"playerName":"Person2","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
@@ -125,11 +130,11 @@ app.get('/Games/:gameID', function (req, res) {
         {"playerName":"Person3","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"},
         {"playerName":"Person4","profileImage":"https://i.redd.it/hf77kkmbmmy01.jpg"},
         {"playerName":"Person5","profileImage":"https://hb.imgix.net/74e8d7c2ec7dde490abf64d54f9828fa073ae4e3.jpg?auto=compress,format&fit=crop&h=353&w=616&s=6b9af392df9564413a51c35a14a3c6d1"}
-       
+
     ]
-    
-    
-    
+
+
+
     });
 
 });
@@ -193,7 +198,7 @@ app.post('/api/createclan', (req, res) => {
         console.log(`Clan: ${clan} is created succesfully.`);
         // res.redirect('/api/allclan');
     });
-    
+
     connection.query(statement2, [clan, user, rank], (error) => {
         if (error) {
             throw error;
