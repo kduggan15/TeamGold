@@ -11,7 +11,7 @@
     overflow: hidden;
     background-color: rgb(76, 91, 175);
     padding: 10px;
-    padding-left: 20px;
+    
     font-family: "Arial", Times, serif;
     width: 97.5%;
   }
@@ -75,7 +75,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: black;
-    padding: 5px;
+    padding: 10px;
    
  }
 
