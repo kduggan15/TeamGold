@@ -17,6 +17,39 @@
     </div>
   </div>
 
+</div>
+<div class="row">
+    
+    {{!-- <link rel="stylesheet" href="/gamePage.css"> --}}
+    
+    <div class="AllGames-Wrapper">
+      {{#each games}}
+      <div class="GameBox">
+        <button class="btn" onclick="window.location.href='/Games/{{gameID}}'"><img src={{ gameImage }}></button>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="column">
+      <table>
+        <caption class="Table-Title">Highest Scoring Players</caption>
+        <tr>
+          <th>Name</th>
+          <th>Game</th>
+          <th>Score</th>
+        </tr>
+        {{#each usersByScore}}
+        <tr>
+          <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
+          <td onclick="window.location.href='{{ page }}'">{{ gameName }}</td>
+          <td onclick="window.location.href='{{ page }}'">{{ score }}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+
+{{!-- 
   <div class="row">
     <div class="column">
       <table>
@@ -36,4 +69,4 @@
       </table>
     </div>
   </div>
-</div>
+</div> --}}

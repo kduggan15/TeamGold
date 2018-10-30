@@ -12,10 +12,10 @@ table {
    margin: 0 auto;
    display: inline-table;
    padding: 10px;
-   margin: 10px;
+   margin: auto;
    border-collapse: collapse;
 
-   width: 47%;
+   width: 60%;
    border: 1px solid black;
 }
 
@@ -62,11 +62,41 @@ h1{
     width: 100%;
 }
 .column {
+    float: right;
+    position: relative;
+    width: 50%;
+}
+
+.row {
     float: left;
-    width: 33.33%;
+    margin: 0;
 }
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
+
+.GameBox {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: absolute;
+      display: inline-block;
+      width: 300px;
+      height: 200px;
+      
+      
+    }
+  
+    .AllGames-Wrapper {
+
+        position: absolute;
+     padding:5px;
+     margin: 0;
+        /* width: 80%;
+        height: 100%; */
+        
+        
+      }
