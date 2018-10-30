@@ -179,7 +179,7 @@ app.get('/user/myprofile', function(req, res){
 
 });
 app.get('/user/myprofile/friendslist', function(req, res){
-    const viewFriendsandPictures = "select distinct profilepictures, userFriend from friends, usersProfiles where friends.userName = 'iTzjT' and usersProfiles.userName = friends.userFriend;"
+    const viewFriendsandPictures = "select distinct profilePictures, userFriend from friends, usersProfiles where friends.userName = 'iTzjT' and usersProfiles.userName = friends.userFriend;"
     connection.query(viewFriendsandPictures, (error, results, friends)=>{
         if(error){
             throw error;
