@@ -34,19 +34,33 @@ app.get('/', function (req, res) {
     });
 
 });
-
+app.get('/Players/search', function (req, res){
+  var userName = "";
+  const select_players = "SELECT * FROM users WHERE users.userName LIKE '%" + userName + "%';";
+  connection.query(select_players, (error, players, fields) => {
+    if (error) {
+      throw error;
+    }
+    res.render('playerPage',{'players':players});
+  });
+});
+app.get('/Players/search/:user', function (req, res){
+  var userName = req.params.user;
+  const select_players = "SELECT * FROM users WHERE users.userName LIKE '%" + userName + "%';";
+  connection.query(select_players, (error, players, fields) => {
+    if (error) {
+      throw error;
+    }
+    res.render('playerPage',{'players':players});
+  });
+});
 app.get('/Games', function (req, res) {
     let result1, result2;
     connection.query('SELECT * FROM games', (error, results, fields) => {
                 if (error) {
                     throw error;
                 }
-
-
-
                 res.render('gamepage',{'games':results});
-
-
         });
 });
 
@@ -222,7 +236,7 @@ app.get('/user/:userName/clanPage', function(req, res){
 
 app.get('/user/:userName', function(req, res){
     var userName = req.params.userName;
-    const userProfile = "select distinct * from users natural join usersprofiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
+    const userProfile = "select distinct * from users natural join usersProfiles natural join gameUsers, games where users.userName='" + userName +"' and gameUsers.gameID = games.gameID;"
 
     connection.query(userProfile, (error,results,fields) =>{
         if(error){
