@@ -9,7 +9,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : '12345678',
+  password : 'password',
   database : 'Gold'
 });
 
@@ -44,6 +44,12 @@ app.get('/Players/search', function (req, res){
     res.render('playerPage',{'players':players});
   });
 });
+app.post('/Players/search', function (req, res){
+    // const rank = req.body.rank;
+    const player = req.body.typeahead;
+    res.redirect('/Players/search/'+ player);
+    
+  });
 app.get('/Players/search/:user', function (req, res){
   var userName = req.params.user;
   const select_players = "SELECT * FROM users natural join usersProfiles WHERE users.userName LIKE '%" + userName + "%';";

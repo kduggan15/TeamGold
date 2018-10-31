@@ -6,7 +6,11 @@
 <div class="Game-Wrapper">
 <div  class="TitleBox">
   <div class="TitleBox-title">Search Results</div>
-  <input class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" type="text" />
+  {{!-- <input class="typeahead tt-query" spellcheck="false" autocomplete="off" name="typeahead" type="text" /> --}}
+  <form action="/Players/search" method="post">
+    <input name="typeahead" type="text" >
+    <input type="submit" value="Search Player" >
+  </form>
 
 
 </div>
