@@ -271,7 +271,17 @@ app.get('/user/:userName/removeFriend', function(req, res){
         console.log('Friend removed lol bye bye');
         res.redirect('/user/myprofile/friendslist');
     })
-})
+});
+app.get('/user/:userName/addClanMember', function(req, res){
+    const addfriend_query = "insert into teamUser values('Red','" + req.params.userName + "', 'Member');"
+    connection.query(addfriend_query,(error,results,fields)=>{
+        if(error){
+            throw error;
+        }
+        console.log('it worked LOL.....');
+        res.redirect('/user/'+ req.params.userName);
+    })
+});
 
 
 
