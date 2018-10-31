@@ -1,27 +1,14 @@
 <link rel="stylesheet" href="/css/home.css">
-<div class=Home-Wrapper>
+<div class="Home-Wrapper">
   <div class="header">
     <h1>Welcome to GameBook</h1>
     <p>Tired of playing alone? Well you're in luck! This site is designed to help connect players together. Just check on the players link to search for a specific gamer. Or click on the games link to find players with similar interests</p>
   </div>
-  <div class="row">
-    
-    <link rel="stylesheet" href="/gamePage.css">
-    
-    <div class="AllGames-Wrapper">
-      {{#each games}}
-      <div class="GameBox">
-        <button class="btn" onclick="window.location.href='/Games/{{gameID}}'"><img src={{ gameImage }}></button>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-
 </div>
-{{!-- <div class="row">
-    
+
+  <div class="Content-Wrapper">
     {{!-- <link rel="stylesheet" href="/gamePage.css"> --}}
-    
+
     <div class="AllGames-Wrapper">
       {{#each games}}
       <div class="GameBox">
@@ -29,11 +16,9 @@
       </div>
       {{/each}}
     </div>
-  </div> --}}
 
-  {{!-- <div class="column"> --}}
-    <div class="Table-Wrapper">
-    {{!-- <table class="highestPlayers"> --}}
+    <div class="mytable">
+    <table>
       <table>
       <caption class="Table-Title">Highest Scoring Players</caption>
         <tr>
@@ -41,39 +26,20 @@
           <th>Game</th>
           <th>Score</th>
         </tr>
+      </table>
+      <div style="height: 1750px; overflow:auto;">
+      <table>
         {{#each usersByScore}}
         <tr>
-          {{!-- <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
-          <td onclick="window.location.href='{{ page }}'">{{ gameName }}</td>
-          <td onclick="window.location.href='{{ page }}'">{{ score }}</td> --}}
           <td><a href='{{ page }}'>{{ userName }}</a></td>
           <td><a href='{{ page }}'>{{ gameName }}</a></td>
           <td><a href='{{ page }}'>{{ score }}</a></td>
         </tr>
         {{/each}}
+        </table>
+        </div>
     </table>
     </div>
-
-  {{!-- </div> --}}
-
-{{!-- 
-  <div class="row">
-    <div class="column">
-      <table>
-        <caption class="Table-Title">Highest Scoring Players</caption>
-        <tr>
-          <th>Name</th>
-          <th>Game</th>
-          <th>Score</th>
-        </tr>
-        {{#each usersByScore}}
-        <tr>
-          <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
-          <td onclick="window.location.href='{{ page }}'">{{ gameName }}</td>
-          <td onclick="window.location.href='{{ page }}'">{{ score }}</td>
-        </tr>
-        {{/each}}
-      </table>
-    </div>
+    
   </div>
-</div> --}}
+{{!-- </div> --}}
