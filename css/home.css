@@ -1,25 +1,36 @@
 body {
     font:15px arial,sans-serif;
 }
-/* h1 {
-    margin: 0 0 10px 0;
-    padding: 5px;
-    font-size: 24px;
-    background-color: #999;
-    color: #ccc;
-} */
+
+.mytable {
+    padding:5px;
+    /* margin: 0; */
+    float: right;
+    width: 100%;
+    /* display: flex; */
+}
 table {
-   margin: 0 auto;
+    /* float: right;
+   margin: 10 auto;
    display: inline-table;
-   padding: 10px;
-   margin: auto;
+   padding: 100px;
    border-collapse: collapse;
 
-   width: 60%;
-   border: 1px solid black;
+   /* width: 100%; */
+   /* border: 1px solid black; */
+   /* position: absolute; */
+    /* float: center; */
+    border-collapse: collapse;
+    
+    width: 100%;
+    /* height: 50px; */
+    border: 1px solid black;
+    /* display: inline-block; */
 }
 
 .Table-Title {
+    /* width: 100%; */
+
     padding:5px;
     font-size: 20px;
     border-top: 1px solid black;
@@ -42,7 +53,7 @@ th {
     color: white;
 }
 
-h1{
+h1 {
   font-size: 40px
 }
 .header {
@@ -56,47 +67,69 @@ h1{
 }
 .Home-Wrapper{
     padding: 5px;
+    /* width: 1000px; */
+    /* margin: auto */
+    margin: 0;
+    width: 100%;
+}
+
+.Content-Wrapper{
+    display: flex;
+    padding: 5px;
     width: 1000px;
     /* margin: auto */
     margin: 0;
     width: 100%;
 }
-.column {
-    float: right;
+
+.GameBox {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     position: relative;
-    width: 50%;
+    display: inline-block;
+    width: 300px;
+    height: 200px;  
+}
+
+.AllGames-Wrapper {
+    padding:5px;
+    margin: 0;
+    float: right;
+    width: 100%;
+    /* height: 100%; */
+}
+
+.GameBox img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+}
+
+.GameBox .btn {
+    position: absolute;
+    height: 100%; width: 100%; object-fit: fill;
+    background-color: white;
+    color: white;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;    
+}
+
+.GameBox .btn:hover {
+    background-color: darkblue;
+}
+/* .column {
+    float: right;
+    margin: 10;
+    position: relative;
+    width: 200px;
 }
 
 .row {
     float: left;
     margin: 0;
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.GameBox {
-    display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      position: absolute;
-      display: inline-block;
-      width: 300px;
-      height: 200px;
-      
-      
-    }
-  
-    .AllGames-Wrapper {
-
-        position: absolute;
-     padding:5px;
-     margin: 0;
-        /* width: 80%;
-        height: 100%; */
-        
-        
-      }
+} */

@@ -1,89 +1,79 @@
 <html>
-<head>
-</head>
+  <head>
+  </head>
 
-<link rel="stylesheet" href="/specificGamePage.css">
-<div class="Game-Wrapper">
-<div  class="TitleBox">
-  <div class="TitleBox-title">{{ Game.gameName }}</div>
-  
- 
- 
-</div>
+  <link rel="stylesheet" href="/specificGamePage.css">
+
+  <div class="Game-Wrapper">
+    <div  class="TitleBox">
+      <div class="TitleBox-title">{{ Game.gameName }}</div>
+    </div>
 
 
-<div class = "GameInfo-Wrapper">
-<div class = "gameBox">
-  
-    <img src={{ Game.gameImage }} class="img" width="410" height="200">
-  
-  <p class="desc"> {{Game.gameDesc}}</p>
-</div>
+    <div class = "GameInfo-Wrapper">
+      <div class = "gameBox">
+        
+        <img src={{ Game.gameImage }} class="img" width="410" height="200">
+      
+        <p class="desc"> {{Game.gameDesc}}</p>
+      </div>
 
 
+      <iframe class="video" src={{ Game.gameVideo }} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
 
-<iframe class="video" src={{ Game.gameVideo }} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+    <div class="Table-Wrapper">
+      
+      <table>
+        <caption class="Table-Title">Top Players</caption>
+        <tr>
+          <th>Name</th>
+        </tr>
+        
+        {{#each topPlayers}}
 
-<div class="Table-Wrapper">
+        <tr>
+          <td onclick="window.location.href='/user/{{ userName }}'">{{ userName }}</td>
+        </tr>
+        {{/each}}
+        
+      </table>
 
-<table>
-    <caption class="Table-Title">Top Players</caption>
-   <tr>
-    <th>Name</th>
-    
-  </tr>
+      <table>
+        <caption class="Table-Title">Most Hours Played</caption>
+        
+        <tr>
+          <th>Name</th>
+          <th>Hours</th>
+        </tr>
+        
+        {{#each mostHours}}
+        
+        <tr>
+          <td onclick="window.location.href='/user/{{ userName }}'">{{ userName }}</td>
+          <td onclick="window.location.href='/user/{{ userName }}'">{{ totalHours }}</td>
+        </tr>
+        {{/each}}
+        
+        </table>
+      </div>
 
-{{#each topPlayers}}
-  <tr>
-    <td onclick="window.location.href='/user/{{ userName }}'">{{ userName }}</td>
-  </tr>
-{{/each}}
+      <div class="Table-Wrapper">
+        <table class="allPlayers">
+          <caption class="Table-Title">All Players</caption>
+          
+          {{#each AllPlayers}}
+          
+          <tr>
+            <td class="playerTable" onclick="window.location.href='/user/{{ userName }}'">
+              <img src={{ profilePictures }} class="playerImage" width="100" height="100">
+              <div class="playerName">{{ userName }}</div>
+            </td>
+            
+          </tr>
+          {{/each}}
+        </table>
+      </div>
 
-</table>
-
-<table>
-     <caption class="Table-Title">Most Hours Played</caption>
- 
-
-  <tr>
-    <th>Name</th>
-    <th>Hours</th>
-    
-  </tr>
-
-  
-
-{{#each mostHours}}
-  <tr>
-    <td onclick="window.location.href='/user/{{ userName }}'">{{ userName }}</td>
-    <td onclick="window.location.href='/user/{{ userName }}'">{{ totalHours }}</td>
-  </tr>
-{{/each}}
-
-</table>
-
-</div>
-<div class="Table-Wrapper">
-<table class="allPlayers">
-     <caption class="Table-Title">All Players</caption>
- 
-
-
-{{#each AllPlayers}}
-  <tr>
-    <td class="playerTable" onclick="window.location.href='/user/{{ userName }}'">
-        <img src={{ profilePictures }} class="playerImage" width="100" height="100">
-        <div class="playerName">{{ userName }}</div>
-    </td>
-    
-  </tr>
-{{/each}}
-  
-
-
-</table>
-</div>
-
-</div>
+    </div>
 </html>
