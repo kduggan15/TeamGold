@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 });
 app.get('/Players/search', function (req, res){
   var userName = "";
-  const select_players = "SELECT * FROM users WHERE users.userName LIKE '%" + userName + "%';";
+  const select_players = "SELECT * FROM users natural join usersProfiles WHERE users.userName LIKE '%" + userName + "%';";
   connection.query(select_players, (error, players, fields) => {
     if (error) {
       throw error;
@@ -46,7 +46,7 @@ app.get('/Players/search', function (req, res){
 });
 app.get('/Players/search/:user', function (req, res){
   var userName = req.params.user;
-  const select_players = "SELECT * FROM users WHERE users.userName LIKE '%" + userName + "%';";
+  const select_players = "SELECT * FROM users natural join usersProfiles WHERE users.userName LIKE '%" + userName + "%';";
   connection.query(select_players, (error, players, fields) => {
     if (error) {
       throw error;
@@ -60,7 +60,7 @@ app.get('/Games', function (req, res) {
                 if (error) {
                     throw error;
                 }
-                res.render('gamepage',{'games':results});
+                res.render('gamePage',{'games':results});
         });
 });
 
