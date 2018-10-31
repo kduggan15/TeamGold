@@ -19,25 +19,22 @@
 
     <div class="mytable">
     <table>
-      <table>
       <caption class="Table-Title">Highest Scoring Players</caption>
         <tr>
           <th>Name</th>
           <th>Game</th>
           <th>Score</th>
         </tr>
-      </table>
-      <div style="height: 1750px; overflow:auto;">
-      <table>
         {{#each usersByScore}}
         <tr>
+          {{!-- <td onclick="window.location.href='{{ page }}'">{{ userName }}</td>
+          <td onclick="window.location.href='{{ page }}'">{{ gameName }}</td>
+          <td onclick="window.location.href='{{ page }}'">{{ score }}</td> --}}
           <td><a href='{{ page }}'>{{ userName }}</a></td>
           <td><a href='{{ page }}'>{{ gameName }}</a></td>
           <td><a href='{{ page }}'>{{ score }}</a></td>
         </tr>
         {{/each}}
-        </table>
-        </div>
     </table>
     </div>
     
