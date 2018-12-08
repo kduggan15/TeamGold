@@ -273,7 +273,8 @@ app.get('/user/:userName/removeFriend', function(req, res){
     })
 });
 app.get('/user/:userName/addClanMember', function(req, res){
-    const addfriend_query = "insert into teamUser values('Red','" + req.params.userName + "', 'Member');"
+    // const addfriend_query = "insert into teamUser values('Red','" + req.params.userName + "', 'Member');"
+    const addfriend_query = "CALL addClanMember('Red', '" + req.params.userName + "', 'Member');"
     connection.query(addfriend_query,(error,results,fields)=>{
         if(error){
             throw error;
