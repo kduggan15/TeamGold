@@ -6,13 +6,37 @@ drop table if exists friends;
 drop table if exists team;
 drop table if exists teamUser;
 
-create table users(userName varchar(127) primary key, name varchar(127), email varchar(127), birthday Date);
-create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(127), bio text);
-create table gameUsers(userName varchar(127), gameID int, score int, totalHours int);
-create table games(gameID int primary key, gameName varchar(255), gameDesc text, gameImage varchar(255), gameVideo varchar(255));
-create table friends(userName varchar(127), userFriend varchar(255));
-CREATE TABLE team (clanName VARCHAR(127) primary key, clanDesc text);
-create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127));
+create table users(
+userName varchar(127) primary key, 
+name varchar(127), 
+email varchar(127), 
+birthday Date);
+
+create table usersProfiles (
+userName varchar(127) primary key, 
+profilePictures varchar(127), bio text);
+create table gameUsers(userName varchar(127), 
+gameID int, score int, totalHours int);
+
+create table games(
+gameID int primary key,
+gameName varchar(255), 
+gameDesc text, gameImage varchar(255), 
+gameVideo varchar(255));
+
+create table friends(
+userName varchar(127), 
+userFriend varchar(255),
+PRIMARY KEY(userName, userFriend));
+
+CREATE TABLE team (
+clanName VARCHAR(127) primary key, 
+clanDesc text);
+
+create table teamUser(
+clanName varchar(127), 
+userName varchar(127) primary key, 
+clanRank varchar(127));
 
 insert into team values ('Red', 'We are Red we hate Blue');
 insert into team values ('Blue', 'We are Blue we hate Red');
@@ -65,7 +89,6 @@ insert into friends values('iTzjT','AntMan');
 insert into friends values('iTzjT','TheLord');
 insert into friends values('iTzjT','BigBoy');
 
-insert into friends values('ThePeePeeMan','PacMan');
 insert into friends values('ThePeePeeMan','AntMan');
 insert into friends values('ThePeePeeMan','TheLord');
 insert into friends values('ThePeePeeMan','DudeBro');
@@ -74,7 +97,6 @@ insert into friends values('ThePeePeeMan','TimeLord');
 insert into friends values('ThePeePeeMan','HatMan');
 insert into friends values('ThePeePeeMan','PacMan');
 
-insert into friends values('AntMan','PacMan');
 insert into friends values('AntMan','TheLord');
 insert into friends values('AntMan','BigBoy');
 insert into friends values('AntMan','PacMan');
@@ -82,7 +104,6 @@ insert into friends values('AntMan','DudeBro');
 insert into friends values('AntMan','SniperKiller');
 insert into friends values('AntMan','HitMan');
 
-insert into friends values('TheLord','PacMan');
 insert into friends values('TheLord','AntMan');
 insert into friends values('TheLord','TheLord');
 insert into friends values('TheLord','BigBoy');
@@ -91,7 +112,6 @@ insert into friends values('TheLord','DudeBro');
 insert into friends values('TheLord','SniperKiller');
 insert into friends values('TheLord','HitMan');
 
-insert into friends values('SniperKiller','PacMan');
 insert into friends values('SniperKiller','AntMan');
 insert into friends values('SniperKiller','TheLord');
 insert into friends values('SniperKiller','BigBoy');
