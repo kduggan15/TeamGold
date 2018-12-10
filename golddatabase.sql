@@ -6,6 +6,13 @@ drop table if exists friends;
 drop table if exists team;
 drop table if exists teamUser;
 
+drop PROCEDURE if exists addClanMember;
+drop PROCEDURE if exists addingFriends;
+drop PROCEDURE if exists removingFriends;
+
+drop trigger if exists AddingOnesSelf;
+drop trigger if exists score_checker;
+
 create table users(userName varchar(127) primary key, name varchar(127), email varchar(127), birthday Date);
 create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(127), bio text);
 create table gameUsers(userName varchar(127), gameID int, score int, totalHours int);
@@ -283,10 +290,22 @@ BEGIN
   END IF;
 END //
 
-CREATE TRIGGER AddingYourSelf
+CREATE PROCEDURE addingFriends(userName VARCHAR(127), userFriend VARCHAR(127))
+BEGIN
+	INSERT INTO friends VALUES(userName, userFriend);
+END //
+
+CREATE PROCEDURE removingFriends(userName VARCHAR(127), userFriend VARCHAR(127))
+BEGIN
+	DELETE from friends WHERE friends.userName = userName AND friends.userFriend = userFriend;
+END //
+
+CREATE TRIGGER AddingOnesSelf
 AFTER INSERT ON friends FOR EACH ROW
 BEGIN
-	if(New.userFriend = 'iTzjT') THEN
-	DELETE FROM friends Where userName = 'iTzjT' AND userFriend = 'iTzjT';
+	if(New.userFriend = New.userName) THEN
+	DELETE FROM friends Where userName = New.userName AND userFriend = New.userFriend;
 	END IF;
-END//    
+END//  
+
+  

@@ -18,6 +18,8 @@ app.engine('handlebars', hb({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
 app.use(express.urlencoded());
 
+const loggedinAccount = 'iTzjT';
+
 app.get('/', function (req, res) {
     var games;
     const select_game_scores = 'SELECT users.userName, games.gameName, gameUsers.score FROM users natural join gameUsers natural join games order by gameUsers.score desc;';
@@ -253,18 +255,26 @@ app.get('/user/:userName', function(req, res){
     })
 });
 app.get('/user/:userName/addfriend', function(req, res){
-    const addfriend_query = "insert into friends values('iTzjT','" + req.params.userName + "');"
-    connection.query(addfriend_query,(error,results,fields)=>{
-        if(error){
-            throw error;
-        }
-        console.log('it worked LOL.....');
-        res.redirect('/user/'+ req.params.userName);
-    })
+    userFriend = req.params.userName;
+    const addfriend_query = "CALL addingFriends (?,?)";
+    
+    try{
+        connection.query(addfriend_query,[loggedinAccount,userFriend],(error,results,fields)=>{
+            if(error){
+                throw error;
+            }
+            console.log('it worked LOL.....');
+            res.redirect('/user/'+ req.params.userName);
+        })
+    }catch(error){
+        console.log(error);
+        res.redirect('/user/'+ userFriend);
+    }
 });
 app.get('/user/:userName/removeFriend', function(req, res){
-    const addfriend_query = "Delete from friends where userName ='iTzjT' and userFriend ='" + req.params.userName + "';"
-    connection.query(addfriend_query,(error,results,fields)=>{
+    userFriend = req.params.userName;
+    const addfriend_query = "CALL removingFriends(?,?)";
+    connection.query(addfriend_query,[loggedinAccount, userFriend],(error,results,fields)=>{
         if(error){
             throw error;
         }
