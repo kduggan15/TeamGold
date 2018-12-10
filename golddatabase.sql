@@ -282,4 +282,11 @@ BEGIN
   UPDATE gameUsers SET NEW.totalHours = gameUsers.totalHours;
   END IF;
 END //
-delimeter ;
+
+CREATE TRIGGER AddingYourSelf
+AFTER INSERT ON friends FOR EACH ROW
+BEGIN
+	if(New.userFriend = 'iTzjT') THEN
+	DELETE FROM friends Where userName = 'iTzjT' AND userFriend = 'iTzjT';
+	END IF;
+END//    
