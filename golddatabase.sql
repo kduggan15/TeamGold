@@ -1,3 +1,5 @@
+SET SQL_SAFE_UPDATES = 0;
+
 drop table if exists users;
 drop table if exists usersProfiles;
 drop table if exists gameUsers;
@@ -12,6 +14,7 @@ drop PROCEDURE if exists removingFriends;
 
 drop trigger if exists AddingOnesSelf;
 drop trigger if exists score_checker;
+drop trigger if exists addMember;
 
 create table users(userName varchar(127) primary key, name varchar(127), email varchar(127), birthday Date);
 create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(127), bio text);
@@ -308,4 +311,10 @@ BEGIN
 	END IF;
 END//  
 
-  
+CREATE TRIGGER addMember AFTER INSERT ON teamUser
+FOR EACH ROW
+BEGIN
+	IF (SELECT COUNT(userName) FROM teamUser WHERE clanName AND userName = New.userName = 1) THEN
+		DELETE FROM teamUser WHERE userName = New.userName;
+	END IF;
+END //
