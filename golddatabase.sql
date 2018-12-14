@@ -8,21 +8,27 @@ drop table if exists friends;
 drop table if exists team;
 drop table if exists teamUser;
 
+drop view if exists friendsList;
+
 drop PROCEDURE if exists addClanMember;
 drop PROCEDURE if exists addingFriends;
 drop PROCEDURE if exists removingFriends;
+drop procedure if exists addingProfiles;
 
-drop trigger if exists AddingOnesSelf;
 drop trigger if exists score_checker;
 drop trigger if exists addMember;
+drop trigger if exists insertUsersIntoProfiles;
+drop trigger if exists autoSearchGamesInBio;
+drop trigger if exists autoSearchGamesInBioAfterUpdate;
 
-create table users(userName varchar(127) primary key, name varchar(127), email varchar(127), birthday Date);
-create table usersProfiles (userName varchar(127) primary key, profilePictures varchar(127), bio text);
-create table gameUsers(userName varchar(127), gameID int, score int, totalHours int);
-create table games(gameID int primary key, gameName varchar(255), gameDesc text, gameImage varchar(255), gameVideo varchar(255));
-create table friends(userName varchar(127), userFriend varchar(255));
-CREATE TABLE team (clanName VARCHAR(127) primary key, clanDesc text);
-create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127));
+
+create table users(userName varchar(127), name varchar(127), email varchar(127), birthday Date, PRIMARY KEY(userName));
+create table usersProfiles (userName varchar(127), profilePictures varchar(127), bio text, PRIMARY KEY(userName));
+create table gameUsers(userName varchar(127), gameID int, score int, totalHours int, PRIMARY KEY(userName, gameID));
+create table games(gameID int, gameName varchar(255), gameDesc text, gameImage varchar(255), gameVideo varchar(255), PRIMARY KEY(gameID));
+create table friends(userName varchar(127), userFriend varchar(255), PRIMARY KEY(userName, userFriend));
+CREATE TABLE team (clanName VARCHAR(127), clanDesc text, PRIMARY KEY(clanName));
+create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127), PRIMARY KEY(userName));
 
 insert into team values ('Red', 'We are Red we hate Blue');
 insert into team values ('Blue', 'We are Blue we hate Red');
@@ -70,10 +76,6 @@ insert into usersProfiles values ('HitMan','https://i.imgur.com/LKBm7qZ.jpg','I 
 insert into usersProfiles values ('PacMan','https://i.imgur.com/9g7jyuC.png','Sup I am the PacMan thats right THE PACMAN! I eat ghosts and kill things with my mouth.');
 
 
-insert into friends values('iTzjT','ThePeePeeMan');
-insert into friends values('iTzjT','AntMan');
-insert into friends values('iTzjT','TheLord');
-insert into friends values('iTzjT','BigBoy');
 
 insert into friends values('ThePeePeeMan','PacMan');
 insert into friends values('ThePeePeeMan','AntMan');
@@ -82,9 +84,7 @@ insert into friends values('ThePeePeeMan','DudeBro');
 insert into friends values('ThePeePeeMan','SniperKiller');
 insert into friends values('ThePeePeeMan','TimeLord');
 insert into friends values('ThePeePeeMan','HatMan');
-insert into friends values('ThePeePeeMan','PacMan');
 
-insert into friends values('AntMan','PacMan');
 insert into friends values('AntMan','TheLord');
 insert into friends values('AntMan','BigBoy');
 insert into friends values('AntMan','PacMan');
@@ -96,7 +96,6 @@ insert into friends values('TheLord','PacMan');
 insert into friends values('TheLord','AntMan');
 insert into friends values('TheLord','TheLord');
 insert into friends values('TheLord','BigBoy');
-insert into friends values('TheLord','PacMan');
 insert into friends values('TheLord','DudeBro');
 insert into friends values('TheLord','SniperKiller');
 insert into friends values('TheLord','HitMan');
@@ -105,7 +104,6 @@ insert into friends values('SniperKiller','PacMan');
 insert into friends values('SniperKiller','AntMan');
 insert into friends values('SniperKiller','TheLord');
 insert into friends values('SniperKiller','BigBoy');
-insert into friends values('SniperKiller','PacMan');
 insert into friends values('SniperKiller','DudeBro');
 insert into friends values('SniperKiller','HitMan');
 
@@ -303,13 +301,132 @@ BEGIN
 	DELETE from friends WHERE friends.userName = userName AND friends.userFriend = userFriend;
 END //
 
-CREATE TRIGGER AddingOnesSelf
-AFTER INSERT ON friends FOR EACH ROW
+CREATE PROCEDURE addingProfiles(userName VARCHAR(127))
 BEGIN
-	if(New.userFriend = New.userName) THEN
-	DELETE FROM friends Where userName = New.userName AND userFriend = New.userFriend;
+	insert into usersprofiles values (userName,'https://i.imgur.com/tdi3NGa.png',"This is a new user, He/She hasn'set up a bio yet :) But like everyone else I bet I played Minecraft");
+END //
+
+
+CREATE TRIGGER insertUsersIntoProfiles after insert on users
+FOR EACH ROW
+begin 
+	CALL addingProfiles (new.userName);
+END//
+
+CREATE TRIGGER autoSearchGamesInBio after insert on usersProfiles
+FOR EACH ROW
+begin 
+
+	if(NEW.bio LIKE '%Rainbow Six Seige%') THEN
+		insert into gameUsers values (NEW.userName,1111, 666, 666);
 	END IF;
-END//  
+	if(NEW.bio LIKE '%Fortnite%') THEN
+		insert into gameUsers values (NEW.userName,2222, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Black Ops 4%') THEN
+		insert into gameUsers values (NEW.userName,3333, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%League of Legends%') THEN
+		insert into gameUsers values (NEW.userName,4444, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Assassins Creed Odyessey%') THEN
+		insert into gameUsers values (NEW.userName,5555, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Overwatch%') THEN
+		insert into gameUsers values (NEW.userName,6666, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Red Dead Redemption 2%') THEN
+		insert into gameUsers values (NEW.userName,7777, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Counter-Strike%') THEN
+		insert into gameUsers values (NEW.userName,8888, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Minecraft%') THEN
+		insert into gameUsers values (NEW.userName,9999, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Dota%') THEN
+		insert into gameUsers values (NEW.userName,11111, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%World of Warcraft%') THEN
+		insert into gameUsers values (NEW.userName,12222, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Super Mario Odyssey%') THEN
+		insert into gameUsers values (NEW.userName,13333, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Grand Theft Auto V%') THEN
+		insert into gameUsers values (NEW.userName,14444, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Hearthstone%') THEN
+		insert into gameUsers values (NEW.userName,15555, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%The Legend of Zelda: Breath of the Wild%') THEN
+		insert into gameUsers values (NEW.userName,16666, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Rocket League%') THEN
+		insert into gameUsers values (NEW.userName,17777, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%The Elder Scrolls V: Skyrim%') THEN
+		insert into gameUsers values (NEW.userName,18888, 666, 666);
+	END IF;
+END//
+
+CREATE TRIGGER autoSearchGamesInBioAfterUpdate after update on usersProfiles
+FOR EACH ROW
+begin 
+	if(NEW.bio LIKE '%Rainbow Six Seige%') THEN
+		insert into gameUsers values (NEW.userName,1111, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Fortnite%') THEN
+		insert into gameUsers values (NEW.userName,2222, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Black Ops 4%') THEN
+		insert into gameUsers values (NEW.userName,3333, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%League of Legends%') THEN
+		insert into gameUsers values (NEW.userName,4444, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Assassins Creed Odyessey%') THEN
+		insert into gameUsers values (NEW.userName,5555, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Overwatch%') THEN
+		insert into gameUsers values (NEW.userName,6666, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Red Dead Redemption 2%') THEN
+		insert into gameUsers values (NEW.userName,7777, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Counter-Strike%') THEN
+		insert into gameUsers values (NEW.userName,8888, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Minecraft%') THEN
+		insert into gameUsers values (NEW.userName,9999, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Dota%') THEN
+		insert into gameUsers values (NEW.userName,11111, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%World of Warcraft%') THEN
+		insert into gameUsers values (NEW.userName,12222, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Super Mario Odyssey%') THEN
+		insert into gameUsers values (NEW.userName,13333, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Grand Theft Auto V%') THEN
+		insert into gameUsers values (NEW.userName,14444, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Hearthstone%') THEN
+		insert into gameUsers values (NEW.userName,15555, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%The Legend of Zelda: Breath of the Wild%') THEN
+		insert into gameUsers values (NEW.userName,16666, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%Rocket League%') THEN
+		insert into gameUsers values (NEW.userName,17777, 666, 666);
+	END IF;
+	if(NEW.bio LIKE '%The Elder Scrolls V: Skyrim%') THEN
+		insert into gameUsers values (NEW.userName,18888, 666, 666);
+	END IF;
+END//
+
+
 
 CREATE TRIGGER addMember AFTER INSERT ON teamUser
 FOR EACH ROW
@@ -318,3 +435,16 @@ BEGIN
 		DELETE FROM teamUser WHERE userName = New.userName;
 	END IF;
 END //
+
+
+delimiter ;
+
+-- Search for user0 and user1 in the website or database.
+insert into users values('User0','Hello World?','HelloWorld@gmail.com','12-12-12');
+-- Jonathan's Test Trigger for users. This test will insert games automacically into the gameusers table.
+-- The search games in bio trigger works for update and insert
+insert into users values('User1','AreYouSerious?','GoodJob@gmail.com','12-12-12');
+Update usersprofiles set bio = 'I love games like Overwatch, Assassins Creed Odyessey, Red Dead Redemption 2, The Elder Scrolls V: Skyrim, The Legend of Zelda: Breath of the Wild, Counter-Strike,  rainbow six seige, world of warcraft , Fortnite , Black Ops 4, HeartStone, Rocket League ' Where userName = 'User1';
+-- Check the webiste you can see that this trigger works. 
+-- select * from gameUsers where userName = 'User0';
+-- delete from gameusers where userName = 'User0';

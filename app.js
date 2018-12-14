@@ -250,7 +250,6 @@ app.get('/user/:userName', function(req, res){
         if(error){
             throw error;
         }
-        console.log(results);
         res.render('otherProfiles', { results });
     })
 });
@@ -263,8 +262,8 @@ app.get('/user/:userName/addfriend', function(req, res){
             if(error){
                 throw error;
             }
-            console.log('it worked LOL.....');
             res.redirect('/user/'+ req.params.userName);
+
         })
     }catch(error){
         console.log(error);
@@ -276,7 +275,7 @@ app.get('/user/:userName/removeFriend', function(req, res){
     const addfriend_query = "CALL removingFriends(?,?)";
     connection.query(addfriend_query,[loggedinAccount, userFriend],(error,results,fields)=>{
         if(error){
-            throw error;
+            throw error;   
         }
         console.log('Friend removed lol bye bye');
         res.redirect('/user/myprofile/friendslist');
