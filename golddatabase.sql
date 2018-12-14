@@ -293,7 +293,13 @@ END //
 
 CREATE PROCEDURE addingFriends(userName VARCHAR(127), userFriend VARCHAR(127))
 BEGIN
-	INSERT INTO friends VALUES(userName, userFriend);
+		IF NOT EXISTS (select * from friends where friends.userName = userName AND friends.userFriend = userFriend) THEN
+			BEGIN
+				if(userName <> userFriend) THEN
+					INSERT INTO friends VALUES(userName, userFriend);
+				END IF;
+            END;
+		END IF;
 END //
 
 CREATE PROCEDURE removingFriends(userName VARCHAR(127), userFriend VARCHAR(127))
