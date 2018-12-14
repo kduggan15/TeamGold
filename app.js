@@ -166,6 +166,7 @@ app.post('/api/createclan', (req, res) => {
     // create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127));
     const statement1 = 'insert into team (clanName, clanDesc) values (?, ?);';
     const statement2 = 'insert into teamUser (clanName, userName, clanRank) values (?, ?, ?);';
+    const statement3 = 'INSERT INTO clanList (Clan, userName) VALUES (?, ?);';
     // const statement = 'INSERT INTO team (Clan, User, Game, Role) VALUES (?, ?, ?, ?);';
 
     connection.query(statement1, [clan, description], (error, results, fields) => {
@@ -176,13 +177,21 @@ app.post('/api/createclan', (req, res) => {
         // res.redirect('/api/allclan');
     });
 
-    connection.query(statement2, [clan, user, rank], (error) => {
+    connection.query(statement3, [clan, user], (error) => {
         if (error) {
             throw error;
         }
         console.log(`User: ${user} is created succesfully.`);
         res.redirect('/api/allclan');
     });
+
+    // connection.query(statement2, [clan, user, rank], (error) => {
+    //     if (error) {
+    //         throw error;
+    //     }
+    //     console.log(`User: ${user} is created succesfully.`);
+    //     res.redirect('/api/allclan');
+    // });
 });
 
 
@@ -283,7 +292,7 @@ app.get('/user/:userName/removeFriend', function(req, res){
 });
 app.get('/user/:userName/addClanMember', function(req, res){
     // const addfriend_query = "insert into teamUser values('Red','" + req.params.userName + "', 'Member');"
-    const addfriend_query = "CALL addClanMember('Red', '" + req.params.userName + "', 'Member');"
+    const addfriend_query = "CALL addClanMember('Red', '" + req.params.userName + "');"
     connection.query(addfriend_query,(error,results,fields)=>{
         if(error){
             throw error;

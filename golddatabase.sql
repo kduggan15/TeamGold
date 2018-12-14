@@ -1,3 +1,4 @@
+USE Gold;
 SET SQL_SAFE_UPDATES = 0;
 
 drop table if exists users;
@@ -7,6 +8,7 @@ drop table if exists games;
 drop table if exists friends;
 drop table if exists team;
 drop table if exists teamUser;
+drop table if exists clanList;
 
 drop view if exists friendsList;
 
@@ -30,6 +32,9 @@ create table friends(userName varchar(127), userFriend varchar(255), PRIMARY KEY
 CREATE TABLE team (clanName VARCHAR(127), clanDesc text, PRIMARY KEY(clanName));
 create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127), PRIMARY KEY(userName));
 
+CREATE TABLE clanList(Clan VARCHAR(127), userName VARCHAR(127), PRIMARY KEY(userName));
+
+
 insert into team values ('Red', 'We are Red we hate Blue');
 insert into team values ('Blue', 'We are Blue we hate Red');
 insert into team values ('Black', 'Black is an attitude as well as a life style');
@@ -48,6 +53,19 @@ insert into teamUser values ('Black','SniperKiller','Member');
 insert into teamUser values ('White','TimeLord','Member');
 insert into teamUser values ('Yellow','HatMan','Member');
 insert into teamUser values ('Red','HitMan','Member');
+
+INSERT INTO clanList VALUES('Red', 'iTzjT');
+INSERT INTO clanList VALUES('Blue', 'ThePeePeeMan');
+INSERT INTO clanList VALUES('Black', 'DudeBro');
+INSERT INTO clanList VALUES('White', 'AntMan');
+INSERT INTO clanList VALUES('Yellow', 'TheLord');
+
+INSERT INTO clanList VALUES('Red', 'PacMan');
+INSERT INTO clanList VALUES('Blue', 'BigBoy');
+INSERT INTO clanList VALUES('Black', 'SniperKiller');
+INSERT INTO clanList VALUES('White', 'TimeLord');
+INSERT INTO clanList VALUES('Yellow', 'HatMan');
+INSERT INTO clanList VALUES('Red', 'HitMan');
 
 insert into users values ('iTzjT','Jonathan','jon@hotmail.com','1976-03-12');
 insert into users values ('ThePeePeeMan','Peter','peter@hotmail.com','1974-09-23');
@@ -273,11 +291,17 @@ insert into gameUsers values ('PacMan',18888, 555, 243);
 
 
 delimiter //
-CREATE PROCEDURE addClanMember( IN Clan VARCHAR(127), userName VARCHAR(127), clanRank VARCHAR(127))
+CREATE PROCEDURE addClanMember( IN clanName VARCHAR(127), user VARCHAR(127))
 BEGIN
-	INSERT INTO teamUser VALUES(Clan, userName, clanRank);
+	-- IF (EXISTS(SELECT * FROM clanList WHERE userName = userName)) THEN
+		DELETE FROM clanList WHERE userName = user;
+        INSERT INTO clanList VALUES (clanName, user);
+		-- UPDATE clanList SET Clan = clanName WHERE userName = userName;
+--     ELSE
+--         INSERT INTO clanList VALUES (clanName, userName);
+	-- END IF;
 END //
--- CALL addClanMember('test', 'test', 'test');
+-- CALL addClanMember('test', 'test');
 
 delimiter //
 CREATE TRIGGER score_check BEFORE UPDATE on gameUsers
@@ -432,19 +456,19 @@ begin
 	END IF;
 END//
 
-
-
-CREATE TRIGGER addMember AFTER INSERT ON teamUser
+CREATE TRIGGER addMember AFTER INSERT ON clanList
 FOR EACH ROW
 BEGIN
-	IF (SELECT COUNT(userName) FROM teamUser WHERE clanName AND userName = New.userName = 1) THEN
-		DELETE FROM teamUser WHERE userName = New.userName;
+	IF (EXISTS(SELECT * FROM teamUser WHERE userName = NEW.userName)) THEN
+		UPDATE teamUser SET clanName = NEW.Clan, clanRank = 'Member' WHERE userName = NEW.userName;
+	ELSE 
+		INSERT INTO teamUser VALUES (NEW.Clan, NEW.userName, 'Leader');
 	END IF;
 END //
 
-
 delimiter ;
 
+-- create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127), PRIMARY KEY(userName));
 -- Search for user0 and user1 in the website or database.
 insert into users values('User0','Hello World?','HelloWorld@gmail.com','12-12-12');
 -- Jonathan's Test Trigger for users. This test will insert games automacically into the gameusers table.
@@ -454,3 +478,9 @@ Update usersprofiles set bio = 'I love games like Overwatch, Assassins Creed Ody
 -- Check the webiste you can see that this trigger works. 
 -- select * from gameUsers where userName = 'User0';
 -- delete from gameusers where userName = 'User0';
+
+
+-- SELECT * FROM clanList;
+-- DELETE FROM clanList WHERE userName = 'AntMan';
+-- SELECT * FROM clanList WHERE userName = 'AntMan';
+
