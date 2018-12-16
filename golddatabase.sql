@@ -22,14 +22,14 @@ drop trigger if exists addMember;
 drop trigger if exists insertUsersIntoProfiles;
 drop trigger if exists autoSearchGamesInBio;
 drop trigger if exists autoSearchGamesInBioAfterUpdate;
+drop trigger if exists score_check;
 
-
-create table users(userName varchar(127), name varchar(127), email varchar(127), birthday Date, PRIMARY KEY(userName));
-create table usersProfiles (userName varchar(127), profilePictures varchar(127), bio text, PRIMARY KEY(userName));
-create table gameUsers(userName varchar(127), gameID int, score int, totalHours int, PRIMARY KEY(userName, gameID));
+create table users(userName varchar(50), name varchar(127), email varchar(127), birthday Date, PRIMARY KEY(userName));
+create table usersProfiles (userName varchar(50), profilePictures varchar(127), bio text, PRIMARY KEY(userName));
+create table gameUsers(userName varchar(50), gameID int, score int, totalHours int, PRIMARY KEY(userName, gameID));
 create table games(gameID int, gameName varchar(255), gameDesc text, gameImage varchar(255), gameVideo varchar(255), PRIMARY KEY(gameID));
-create table friends(userName varchar(127), userFriend varchar(255), PRIMARY KEY(userName, userFriend));
-CREATE TABLE team (clanName VARCHAR(127), clanDesc text, PRIMARY KEY(clanName));
+create table friends(userName varchar(50), userFriend varchar(50), PRIMARY KEY(userName, userFriend));
+CREATE TABLE team (clanName VARCHAR(50), clanDesc text, PRIMARY KEY(clanName));
 create table teamUser(clanName varchar(127), userName varchar(127), clanRank varchar(127), PRIMARY KEY(userName));
 
 CREATE TABLE clanList(Clan VARCHAR(127), userName VARCHAR(127), PRIMARY KEY(userName));
@@ -295,7 +295,7 @@ CREATE PROCEDURE addClanMember( IN clanName VARCHAR(127), user VARCHAR(127))
 BEGIN
 	-- IF (EXISTS(SELECT * FROM clanList WHERE userName = userName)) THEN
 		DELETE FROM clanList WHERE userName = user;
-        INSERT INTO clanList VALUES (clanName, user);
+    INSERT INTO clanList VALUES (clanName, user);
 		-- UPDATE clanList SET Clan = clanName WHERE userName = userName;
 --     ELSE
 --         INSERT INTO clanList VALUES (clanName, userName);
@@ -303,7 +303,6 @@ BEGIN
 END //
 -- CALL addClanMember('test', 'test');
 
-delimiter //
 CREATE TRIGGER score_check BEFORE UPDATE on gameUsers
 FOR EACH ROW
 BEGIN
@@ -498,4 +497,3 @@ Update usersprofiles set bio = 'I love games like Overwatch, Assassins Creed Ody
 -- SELECT * FROM clanList;
 -- DELETE FROM clanList WHERE userName = 'AntMan';
 -- SELECT * FROM clanList WHERE userName = 'AntMan';
-
