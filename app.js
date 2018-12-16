@@ -36,6 +36,15 @@ app.get('/', function (req, res) {
     });
 
 });
+
+//SELECT gameName,b.tHours FROM (SELECT sum(totalHours) as tHours,gameID FROM gameUsers GROUP BY gameID ORDER BY tHours DESC) AS b NATURAL JOIN games; 
+
+
+
+
+
+
+
 app.get('/Players/search', function (req, res){
   var userName = "";
   const select_players = "SELECT * FROM users natural join usersProfiles WHERE users.userName LIKE '%" + userName + "%';";
@@ -68,7 +77,14 @@ app.get('/Games', function (req, res) {
                 if (error) {
                     throw error;
                 }
-                res.render('gamePage',{'games':results});
+                var topGameQuery = 'SELECT gameName,b.tHours FROM (SELECT sum(totalHours) as tHours,gameID FROM gameUsers GROUP BY gameID ORDER BY tHours DESC) AS b NATURAL JOIN games LIMIT 10;';
+                connection.query(topGameQuery, (error, gameList, fields) => {
+                    if (error) {
+                        throw error;
+                    }
+                    res.render('gamePage',{'games':results,'gameList':gameList});
+            });
+
         });
 });
 

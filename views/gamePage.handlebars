@@ -4,6 +4,7 @@
 
 <body>
 <link rel="stylesheet" href="/gamePage.css">
+<div class="Content-Wrapper">
 
 <div class="AllGames-Wrapper">
 {{#each games}}
@@ -14,9 +15,29 @@
 </div>
 
 
+    <div class="MyTable">
+    <table>
+      <caption class="Table-Title">Top Games</caption>
+        <tr>
+          <th>Game</th>
+          <th>Hours</th>
+          
+        </tr>
+        {{#each gameList}}
+        <tr>
+
+          <td>{{ gameName }}</td>
+          <td>{{ tHours }}</td>
+        
+        </tr>
+        {{/each}}
+    </table>
+    </div>
+
+
+
 
 </body>
-
 </html>
 
 

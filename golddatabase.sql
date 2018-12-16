@@ -326,6 +326,21 @@ BEGIN
 		END IF;
 END //
 
+
+CREATE PROCEDURE addGame(gameID int, gameName varchar(255), gameDesc text, gameImage varchar(255), gameVideo varchar(255))
+BEGIN
+		IF NOT EXISTS (select * from games where games.gameID = gameID) THEN
+			BEGIN
+					INSERT INTO games VALUES(gameID, gameName,gameDesc,gameImage,gameVideo);
+            END;
+		END IF;
+END //
+
+CREATE PROCEDURE removeGame(gameID VARCHAR(127))
+BEGIN
+	DELETE from games WHERE games.gameID = gameID;
+END //
+
 CREATE PROCEDURE removingFriends(userName VARCHAR(127), userFriend VARCHAR(127))
 BEGIN
 	DELETE from friends WHERE friends.userName = userName AND friends.userFriend = userFriend;
