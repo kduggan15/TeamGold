@@ -293,24 +293,19 @@ insert into gameUsers values ('PacMan',18888, 555, 243);
 delimiter //
 CREATE PROCEDURE addClanMember( IN clanName VARCHAR(127), user VARCHAR(127))
 BEGIN
-	-- IF (EXISTS(SELECT * FROM clanList WHERE userName = userName)) THEN
-		DELETE FROM clanList WHERE userName = user;
-    INSERT INTO clanList VALUES (clanName, user);
-		-- UPDATE clanList SET Clan = clanName WHERE userName = userName;
---     ELSE
---         INSERT INTO clanList VALUES (clanName, userName);
-	-- END IF;
+	DELETE FROM clanList WHERE userName = user;
+  INSERT INTO clanList VALUES (clanName, user);
 END //
 -- CALL addClanMember('test', 'test');
 
 CREATE TRIGGER score_check BEFORE UPDATE on gameUsers
 FOR EACH ROW
 BEGIN
-  IF NEW.score<gameUsers.score THEN
-  UPDATE gameUsers SET NEW.score = gameUsers.score;
+  IF NEW.score<OLD.score THEN
+  SET NEW.score = OLD.score;
   END IF;
-  IF NEW.totalHours < gameUsers.totalHours THEN
-  UPDATE gameUsers SET NEW.totalHours = gameUsers.totalHours;
+  IF NEW.totalHours < OLD.totalHours THEN
+  SET NEW.totalHours = OLD.totalHours;
   END IF;
 END //
 
