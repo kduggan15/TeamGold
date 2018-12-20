@@ -16,6 +16,8 @@ drop PROCEDURE if exists addClanMember;
 drop PROCEDURE if exists addingFriends;
 drop PROCEDURE if exists removingFriends;
 drop procedure if exists addingProfiles;
+drop procedure if exists addGame;
+drop procedure if exists removeGame;
 
 drop trigger if exists score_checker;
 drop trigger if exists addMember;
