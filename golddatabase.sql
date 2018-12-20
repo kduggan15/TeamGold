@@ -43,7 +43,6 @@ insert into team values ('Black', 'Black is an attitude as well as a life style'
 insert into team values ('White', 'We are super White');
 insert into team values ('Yellow', 'We are Yellow we just want to get along');
 
-insert into teamUser values ('Red','iTzjT','Leader');
 insert into teamUser values ('Blue','ThePeePeeMan','Leader');
 insert into teamUser values ('Black','DudeBro','Leader');
 insert into teamUser values ('White','AntMan','Leader');
@@ -56,7 +55,6 @@ insert into teamUser values ('White','TimeLord','Member');
 insert into teamUser values ('Yellow','HatMan','Member');
 insert into teamUser values ('Red','HitMan','Member');
 
-INSERT INTO clanList VALUES('Red', 'iTzjT');
 INSERT INTO clanList VALUES('Blue', 'ThePeePeeMan');
 INSERT INTO clanList VALUES('Black', 'DudeBro');
 INSERT INTO clanList VALUES('White', 'AntMan');
