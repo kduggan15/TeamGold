@@ -28,13 +28,13 @@ const connection = mysql.createConnection({
 
 ##### Exploring the site:
 
-![exploring the site](./exploring the site.gif)
+![exploring the site](./exploring_the_site.gif)
 
 - Each game page contains details about the game itself and users who played the game. 
 
 #### The social media aspect of the site:
 
-![social media aspect](./social media aspect.gif)
+![social media aspect](./social_media_aspect.gif)
 
 - In order to explore relational databases we decided that a social media site was the best way to show our knowledge. Users are related to the games they play and other users through the friends list.
 
@@ -48,4 +48,4 @@ Gamerscore can not decrease.
 
 Procedures ideas
 Instead of sql statement for clan. use procedures. 
-Instead of sql statement for adding friends. use procedures. 
+Instead of sql statement for adding friends. use procedures. h
